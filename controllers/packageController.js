@@ -9,4 +9,7 @@ router.get('/listpackages', function (req, res) {
     packageService.listPackages(req,res);
   })
 
+  router.get('/searchpackage', function (req, res) {
+    packageService.searchPackage(req,res);
+  })
 module.exports = router;
