@@ -1,5 +1,11 @@
 var express = require('express');
 var User = require('../models/user');
+var config = require('../config.json');
+var msg91 = require('msg91-sms');
+var msg91api    = config.msg91api;
+var msg91senderId    = config.msg91senderid;
+var msg91dialcode = config.msg91dialcode;
+var msg91route = config.msg91route;
 
 var uuidv1 = require('uuid/v1');
 exports.login = (req,res)=>{
@@ -85,14 +91,22 @@ exports.register = (req,res)=>{
                           });
                     }
                     else{
-                        //call otp service
-                        res.send(
-                            {
-                                status: 'success',
-                                code: 200,
-                                data: {}
-                              }
-                        );
+                        var number= req.body.mobile;
+                        var message= otp;
+                        var senderid= msg91senderId;
+                        var route= msg91route;
+                        var dialcode= msg91dialcode;
+                        msg91.sendOneandGetJson(msg91api,number,message,senderid,route,dialcode,function(response){
+                            console.log(response);
+                            res.send(
+                                {
+                                    status: 'success',
+                                    code: 200,
+                                    data: {}
+                                  }
+                            ); 
+                            });
+                        
                     }
                 });
             }
@@ -130,11 +144,21 @@ exports.resendOtp = ()=>{
         }
         else
         {
-            //call otp service
-            res.send({
-                status: 'success',
-                data: data
-              });
+            var number= req.body.mobile;
+            var message= data.otp;
+            var senderid= msg91senderId;
+            var route= msg91route;
+            var dialcode= msg91dialcode;
+            msg91.sendOneandGetJson(msg91api,number,message,senderid,route,dialcode,function(response){
+                console.log(response);
+                res.send(
+                    {
+                        status: 'success',
+                        code: 200,
+                        data: {}
+                      }
+                ); 
+                });
         }
     });
 }
