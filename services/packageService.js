@@ -8,7 +8,7 @@ exports.addPackage = (req,res)=>{
     var package = new Package({
         _id: id,
         packageId:id,
-        packageName:req.body.name,
+        packageName:req.body.packageName,
         tests: req.body.tests,
         labId: req.body.labId,
         fasting:req.body.fasting,
@@ -23,33 +23,25 @@ exports.addPackage = (req,res)=>{
                 data: {}
               });
         }
-        else{
-            esService.createPackage(package).then((data)=>{
-                res.send(
-                    {
-                        status: 'success',
-                        code: 200,
-                        data: {}
-                      }
-                );
-            },
-            (err)=>{
-                if(err){
-                    console.log(err);
-                    res.send({
-                        status: 'fail',
-                        data: {}
-                      });
-                }
-              
-            });
-           
+        else{ res.send(
+            {
+                status: 'success',
+                code: 200,
+                data: {}
+              }
+        );
         }
     });
 }
 
 exports.listPackages = (req,res)=>{
-    Package.find().sort({'sold': -1}).exec((err,data)=>{
+
+        Package.aggregate([
+            { $lookup: { from: "tests", localField: "tests", foreignField: "testId", as: "tests"  } },
+            { $unwind: "$tests" },
+            { $replaceRoot: { newRoot: "$tests" } }
+          ], function(err, data){
+          
         if(err){
             console.log(err)
             res.send({
@@ -58,14 +50,13 @@ exports.listPackages = (req,res)=>{
               });
         }
         else{
-            
                 res.send({
                     status: 'success',
                     code:200,
                     data: data
                   });
                 }
-    });
+            });
 }
 
 exports.searchPackage = (req,res)=>{
@@ -117,7 +108,7 @@ exports.addTest= (req,res)=>{
 }
 
 exports.getTests = (req,res)=>{
-    Test.find()..exec((err,data)=>{
+    Test.find().exec((err,data)=>{
         if(err){
             console.log(err)
             res.send({
