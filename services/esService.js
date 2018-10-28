@@ -3,10 +3,7 @@ var client = require('../db/elastic');
 
 
 exports.createPackage = (package)=> {
-    var test = '';
-    package.tests.forEach(element => {
-        test +=element.name+" ";
-    });
+    
     return new Promise( (resolve,reject)=> {
         client.index({
             index: 'packages',
@@ -14,7 +11,6 @@ exports.createPackage = (package)=> {
             id: package.id,
             body: {
             packageName: package.packageName,
-            rawTest: test,
             tests: package.tests,
             consultation: package.consultation,
             price: package.price,
@@ -47,7 +43,7 @@ exports.createPackage = (package)=> {
                     "multi_match": {
                     "query": term,
                     "type":       "best_fields",
-                    "fields": ["packageName^9","rawTest^8"]
+                    "fields": ["packageName^9"]
                     }
                     }
                    

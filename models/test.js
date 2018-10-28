@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var package = new Schema({
+var test = new Schema({
     _id: String,
-    packageId: String,
-    packageName: String,
-    tests: Array,
-    consultation: String,
+    testId: String,
+    testName: String,
+    parameters: Schema.Types.Mixed,
     Sold: {
         type: Number,
         "default": 0
@@ -21,4 +20,4 @@ var package = new Schema({
 }, {
     strict: false
 });
-module.exports = mongoose.model('package', package);
+module.exports = mongoose.model('test', test);
