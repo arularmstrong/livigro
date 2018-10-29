@@ -40,7 +40,7 @@ exports.listPackages = (req,res)=>{
             { $lookup: { from: "tests", localField: "tests", foreignField: "testId", as: "tests"  } },
             { $unwind: "$tests" },
             { $replaceRoot: { newRoot: "$tests" } }
-          ], function(err, data){
+          ], function(err, sorted){
           
         if(err){
             console.log(err)
@@ -50,11 +50,26 @@ exports.listPackages = (req,res)=>{
               });
         }
         else{
+            Package.find({  }, function (err, data) {
+                if(err){
+                    console.log(err)
+                    res.send({
+                        status: 'fail',
+                        data: {}
+                      });
+                }
+                else
+             {   
+                data[0].tests = null;
+                data[0].tests = sorted;
                 res.send({
                     status: 'success',
                     code:200,
-                    data: data
+                    data: data[0]
                   });
+            }
+              });
+                
                 }
             });
 }
