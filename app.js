@@ -12,6 +12,7 @@ var package = require('./server/controllers/packageController');
 
 
 var app = express();
+var port = process.env.PORT || 80;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,5 +30,11 @@ app.use((req, res, next)=> {
 });
 
 
+
+
+
+app.listen(port,()=>{
+  console.log("Listening on localhost")
+});
 
 module.exports = app;
