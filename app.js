@@ -1,17 +1,33 @@
-var express = require("express");
-var bodyParser = require('body-parser');
-var app = express();
-var db = require('./db/mongoose');
-var elastic = require('./db/elastic');
-var user = require('./controllers/userController');
-var booking = require('./controllers/bookingController');
-var lab = require('./controllers/labController');
-var package = require('./controllers/packageController');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var db = require('./server/db/mongoose');
+var elastic = require('./server/db/elastic');
+var user = require('./server/controllers/userController');
+var booking = require('./server/controllers/bookingController');
+var lab = require('./server/controllers/labController');
+var package = require('./server/controllers/packageController');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/user',user);
-app.use('/booking',booking);
-app.use('/lab',lab);
-app.use('/package',package);
-app.listen(80,()=>{console.log("listening on localhost")});
+
+
+var app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'dist/livigro')));
+app.use('/', express.static(path.join(__dirname, 'dist/livigro')));
+
+app.use('/api/user',user);
+app.use('/api/booking',booking);
+app.use('/api/lab',lab);
+app.use('/api/package',package);
+
+
+app.use((req, res, next)=> {
+  next(createError(404));
+});
+
+
+
+module.exports = app;
