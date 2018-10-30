@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('../services/userService');
+router.post('/login', function (req, res) {
+  userService.login(req,res);
+})
+
 router.post('/register', function (req, res) {
   userService.register(req,res);
 })

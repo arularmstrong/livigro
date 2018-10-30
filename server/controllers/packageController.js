@@ -17,4 +17,8 @@ router.get('/listpackages', function (req, res) {
     packageService.addTest(req,res);
   })
 
+  router.get('/gettests', function (req, res) {
+    packageService.getTests(req,res);
+  })
+
 module.exports = router;
