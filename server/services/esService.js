@@ -43,7 +43,7 @@ exports.createPackage = (package)=> {
                     "multi_match": {
                     "query": term,
                     "type":       "best_fields",
-                    "fields": ["packageName^9"]
+                    "fields": ["packageName"]
                     }
                     }
                    
