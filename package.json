@@ -14,6 +14,7 @@
     "elasticsearch": "^15.1.1",
     "express": "^4.16.4",
     "mongoose": "^5.3.6",
+    "msg91-sms": "^1.0.1",
     "uuid": "^3.3.2"
   }
 }

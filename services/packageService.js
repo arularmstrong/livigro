@@ -36,39 +36,24 @@ exports.addPackage = (req,res)=>{
 
 exports.listPackages = (req,res)=>{
 
-        Package.aggregate([
-            { $lookup: { from: "tests", localField: "tests", foreignField: "testId", as: "tests"  } },
-            { $unwind: "$tests" },
-            { $replaceRoot: { newRoot: "$tests" } }
-          ], function(err, sorted){
+        Package.find({}).populate({
+            path:'tests.testId'
+          }).sort({sold: -1}).exec(function(err, data){
           
         if(err){
             console.log(err)
+
             res.send({
                 status: 'fail',
                 data: {}
               });
         }
         else{
-            Package.find({  }, function (err, data) {
-                if(err){
-                    console.log(err)
-                    res.send({
-                        status: 'fail',
-                        data: {}
-                      });
-                }
-                else
-             {   
-                data[0].tests = null;
-                data[0].tests = sorted;
-                res.send({
-                    status: 'success',
-                    code:200,
-                    data: data[0]
-                  });
-            }
-              });
+            res.send({
+            status: 'success',
+            code:200,
+            data: data
+          });
                 
                 }
             });

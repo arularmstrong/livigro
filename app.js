@@ -7,6 +7,7 @@ var user = require('./controllers/userController');
 var booking = require('./controllers/bookingController');
 var lab = require('./controllers/labController');
 var package = require('./controllers/packageController');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/user',user);

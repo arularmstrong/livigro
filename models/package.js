@@ -4,7 +4,12 @@ var package = new Schema({
     _id: String,
     packageId: String,
     packageName: String,
-    tests: Array,
+    tests: [{
+        testId: {
+          type: String,
+          ref: 'test'
+        }
+      }],
     consultation: String,
     Sold: {
         type: Number,
