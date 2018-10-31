@@ -48,7 +48,7 @@ module.exports = "/*!\n * Bootstrap v4.1.3 (https://getbootstrap.com/)\n * Copyr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\n"
 
 /***/ }),
 
@@ -580,8 +580,12 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /root/v7/livigro/src/styles.css */"./src/styles.css");
 module.exports = __webpack_require__(/*! /root/v7/livigro/node_modules/bootstrap/dist/css/bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+=======
+module.exports = __webpack_require__(/*! C:\Users\Godwin\Desktop\livigro-\src\styles.css */"./src/styles.css");
+>>>>>>> 60059ac62530cc89364abf979545f81242ac8127
 
 
 /***/ })
