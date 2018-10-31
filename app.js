@@ -25,9 +25,6 @@ app.use('/api/lab',lab);
 app.use('/api/package',package);
 
 
-app.use((req, res, next)=> {
-  next(createError(404));
-});
 
 
 
