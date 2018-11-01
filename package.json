@@ -28,11 +28,14 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-font-awesome": "^3.1.2",
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.0.0",
     "codelyzer": "~4.3.0",
     "core-js": "^2.5.4",
     "elasticsearch": "^15.2.0",
     "express": "^4.16.4",
+    "font-awesome": "^4.7.0",
     "http-errors": "^1.7.1",
     "mongoose": "^5.3.7",
     "morgan": "^1.9.1",
@@ -40,8 +43,7 @@
     "rxjs": "~6.2.0",
     "serve-favicon": "^2.5.0",
     "typescript": "~2.9.2",
-    "zone.js": "~0.8.26",
-    "bootstrap": "^4.0.0"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular/cli": "~6.2.4",
