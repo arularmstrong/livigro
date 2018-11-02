@@ -621,9 +621,9 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /root/livigro/node_modules/font-awesome/scss/font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
-__webpack_require__(/*! /root/livigro/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! /root/livigro/src/styles.scss */"./src/styles.scss");
+__webpack_require__(/*! C:\Users\Godwin\Desktop\livigro-\node_modules\font-awesome\scss\font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
+__webpack_require__(/*! C:\Users\Godwin\Desktop\livigro-\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! C:\Users\Godwin\Desktop\livigro-\src\styles.scss */"./src/styles.scss");
 
 
 /***/ })

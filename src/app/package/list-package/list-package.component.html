@@ -16,15 +16,17 @@ H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
 c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
     </svg>
       </div>
-      <div class="card-body bg-white mt-0 shadow">
+      <div class="card-body bg-white mt-0 shadow card-area" >
           <p>Parameters covered <b>{{package.tests.length}}</b></p>
         <ul class="list-unstyled mb-5 position-relative" *ngFor="let test of package.tests;let i=index">
           
           <li *ngIf="i<3">{{test.testId.testName}}</li>
         </ul>
         <p *ngIf="package.tests.length>3">+<b>{{package.tests.length-3}}</b> more</p>
-        <p><i class="fa fa-cutlery" aria-hidden="true"></i> {{package.fasting}} hr fasting required </p>
-        <button type="button" class="btn btn-lg btn-block  btn-custom ">Book</button>
+        <center>
+        <p class="para"><i class="fa fa-cutlery" aria-hidden="true"></i> {{package.fasting}} hr fasting required </p>
+    </center>
+        <button type="button" class="btn btn-lg btn-block  btn-custom demo-button" >Book</button>
       </div>
     </div>
    

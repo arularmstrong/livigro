@@ -77,7 +77,7 @@ var ApiService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-dashboard></app-dashboard>\n<app-search></app-search>\n<app-list-package></app-list-package>\n<app-footer></app-footer>"
+module.exports = "<app-dashboard></app-dashboard>\r\n<app-search></app-search>\r\n<app-list-package></app-list-package>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -204,7 +204,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dashboard works!\n</p>\n"
+module.exports = "<p>\r\n  dashboard works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -267,7 +267,7 @@ var DashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  footer works!\n</p>\n"
+module.exports = "<p>\r\n  footer works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -330,7 +330,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid p-5\">\n  <div class=\"row m-auto text-center\">\n    \n    <div class=\"col-md-3 princing-item red p-3\" *ngFor=\"let package of packages\">\n      <div class=\"pricing-divider \">\n          <p class=\"text-light\">{{package.packageName}}</p>\n        <b class=\"my-0 display-4 text-light font-weight-normal\"><span class=\"h3\">$</span> {{package.price}}</b>\n         <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>\n      <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729\nc48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>\n      <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729\nc48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>\n      <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716\nH42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>\n      <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428\nc53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>\n    </svg>\n      </div>\n      <div class=\"card-body bg-white mt-0 shadow\">\n          <p>Parameters covered <b>{{package.tests.length}}</b></p>\n        <ul class=\"list-unstyled mb-5 position-relative\" *ngFor=\"let test of package.tests;let i=index\">\n          \n          <li *ngIf=\"i<3\">{{test.testId.testName}}</li>\n        </ul>\n        <p *ngIf=\"package.tests.length>3\">+<b>{{package.tests.length-3}}</b> more</p>\n        <p><i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i> {{package.fasting}} hr fasting required </p>\n        <button type=\"button\" class=\"btn btn-lg btn-block  btn-custom \">Book</button>\n      </div>\n    </div>\n   \n\n           </div>\n           </div>\n           "
+module.exports = "<div class=\"container-fluid p-5\">\r\n  <div class=\"row m-auto text-center\">\r\n    \r\n    <div class=\"col-md-3 princing-item red p-3\" *ngFor=\"let package of packages\">\r\n      <div class=\"pricing-divider \">\r\n          <p class=\"text-light\">{{package.packageName}}</p>\r\n        <b class=\"my-0 display-4 text-light font-weight-normal\"><span class=\"h3\">$</span> {{package.price}}</b>\r\n         <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>\r\n      <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729\r\nc48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>\r\n      <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729\r\nc48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>\r\n      <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716\r\nH42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>\r\n      <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428\r\nc53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>\r\n    </svg>\r\n      </div>\r\n      <div class=\"card-body bg-white mt-0 shadow card-area\" >\r\n          <p>Parameters covered <b>{{package.tests.length}}</b></p>\r\n        <ul class=\"list-unstyled mb-5 position-relative\" *ngFor=\"let test of package.tests;let i=index\">\r\n          \r\n          <li *ngIf=\"i<3\">{{test.testId.testName}}</li>\r\n        </ul>\r\n        <p *ngIf=\"package.tests.length>3\">+<b>{{package.tests.length-3}}</b> more</p>\r\n        <center>\r\n        <p class=\"para\"><i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i> {{package.fasting}} hr fasting required </p>\r\n    </center>\r\n        <button type=\"button\" class=\"btn btn-lg btn-block  btn-custom demo-button\" >Book</button>\r\n      </div>\r\n    </div>\r\n   \r\n\r\n           </div>\r\n           </div>\r\n           "
 
 /***/ }),
 
@@ -341,7 +341,7 @@ module.exports = "<div class=\"container-fluid p-5\">\n  <div class=\"row m-auto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ul li {\n  padding: 1px; }\n\n.pricing-divider {\n  background: #e13c80;\n  padding: 1em 0 2em;\n  position: relative; }\n\n.red b {\n  color: #e13c80; }\n\n.pricing-divider-img {\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 100%;\n  height: 30px; }\n\n.deco-layer {\n  transition: -webkit-transform 0.5s;\n  transition: transform 0.5s;\n  transition: transform 0.5s, -webkit-transform 0.5s; }\n\n.btn-custom {\n  background: #e13c80;\n  color: #fff;\n  border-radius: 20px; }\n\n.img-float {\n  width: 50px;\n  position: absolute;\n  top: -3.5rem;\n  right: 1rem; }\n\n.princing-item {\n  transition: all 150ms ease-out; }\n\n.princing-item:hover {\n  -webkit-transform: scale(1.05);\n          transform: scale(1.05); }\n\n.princing-item:hover .deco-layer--1 {\n  -webkit-transform: translate3d(15px, 0, 0);\n  transform: translate3d(15px, 0, 0); }\n\n.princing-item:hover .deco-layer--2 {\n  -webkit-transform: translate3d(-15px, 0, 0);\n  transform: translate3d(-15px, 0, 0); }\n"
+module.exports = "ul li {\n  padding: 1px; }\n\n.demo-button {\n  bottom: 0;\n  width: 75%;\n  margin-bottom: 3vw;\n  position: absolute; }\n\n.para {\n  bottom: 7vw;\n  position: absolute;\n  width: 80%; }\n\n.card-area {\n  height: 32vw; }\n\n.pricing-divider {\n  background: #e13c80;\n  padding: 1em 0 2em;\n  position: relative; }\n\n.red b {\n  color: #e13c80; }\n\n.pricing-divider-img {\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 100%;\n  height: 30px; }\n\n.deco-layer {\n  transition: -webkit-transform 0.5s;\n  transition: transform 0.5s;\n  transition: transform 0.5s, -webkit-transform 0.5s; }\n\n.btn-custom {\n  background: #e13c80;\n  color: #fff;\n  border-radius: 20px; }\n\n.img-float {\n  width: 50px;\n  position: absolute;\n  top: -3.5rem;\n  right: 1rem; }\n\n.princing-item {\n  transition: all 150ms ease-out; }\n\n.princing-item:hover {\n  -webkit-transform: scale(1.05);\n          transform: scale(1.05); }\n\n.princing-item:hover .deco-layer--1 {\n  -webkit-transform: translate3d(15px, 0, 0);\n  transform: translate3d(15px, 0, 0); }\n\n.princing-item:hover .deco-layer--2 {\n  -webkit-transform: translate3d(-15px, 0, 0);\n  transform: translate3d(-15px, 0, 0); }\n"
 
 /***/ }),
 
@@ -404,7 +404,7 @@ var ListPackageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  view-package works!\n</p>\n"
+module.exports = "<p>\r\n  view-package works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -467,7 +467,7 @@ var ViewPackageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  search works!\n</p>\n"
+module.exports = "<p>\r\n  search works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -530,7 +530,7 @@ var SearchComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n"
+module.exports = "<p>\r\n  login works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -593,7 +593,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  register works!\n</p>\n"
+module.exports = "<p>\r\n  register works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -710,7 +710,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /root/livigro/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Godwin\Desktop\livigro-\src\main.ts */"./src/main.ts");
 
 
 /***/ })

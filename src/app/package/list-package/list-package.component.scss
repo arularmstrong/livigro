@@ -2,6 +2,24 @@
     ul li {
       padding: 1px; 
     }
+
+    .demo-button{
+        bottom: 0;
+        width: 75%;
+        margin-bottom: 3vw;
+        position: absolute;
+    }
+
+    .para{
+        bottom: 7vw;
+        position: absolute;
+        width:80%;
+    }
+
+    .card-area{
+      height: 32vw;
+    }
+
     .pricing-divider {
     background: rgb(225, 60, 128);
     padding: 1em 0 2em;
