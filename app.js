@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
 var db = require('./server/db/mongoose');
 var elastic = require('./server/db/elastic');
 var user = require('./server/controllers/userController');
