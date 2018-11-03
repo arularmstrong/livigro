@@ -13,6 +13,10 @@ getPackages(){
     return  this.http.get(`${this.API_URL}/api/package/listpackages`);
 }
 
+getTopPackages(){
+  return  this.http.get(`${this.API_URL}/api/package/listtoppackages`);
+}
+
 createPackage(data){
   return  this.http.post(`${this.API_URL}/package/`,data);
 }

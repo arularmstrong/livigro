@@ -13,14 +13,16 @@ export class ListPackageComponent implements OnInit {
   
   
   public  packages;
-  
+  public loading = false;
   constructor(private  apiService:  ApiService, private router: Router, private packageService : PackageService) { }
 
   ngOnInit() {
     this.listPackages();
 }
 public  listPackages(){
+  this.loading = true;
   this.apiService.getPackages().subscribe((data:  any) => {
+      this.loading = false;
       this.packages  =  data.data;
 
       console.log(data.data);

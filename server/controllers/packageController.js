@@ -8,6 +8,9 @@ router.post('/addpackage', function (req, res) {
 router.get('/listpackages', function (req, res) {
     packageService.listPackages(req,res);
   })
+  router.get('/listtoppackages', function (req, res) {
+    packageService.listTopPackages(req,res);
+  })
 
   router.get('/searchpackage', function (req, res) {
     packageService.searchPackage(req,res);

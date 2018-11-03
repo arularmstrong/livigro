@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && node app.js",
+    "start": "ng build --prod && node app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,6 +30,7 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.3.8",
     "msg91-sms": "^1.0.1",
+    "ngx-loading": "^3.0.1",
     "rxjs": "~6.2.0",
     "serve-favicon": "^2.5.0",
     "typescript": "~2.9.2",

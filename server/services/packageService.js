@@ -58,6 +58,28 @@ exports.listPackages = (req,res)=>{
                 }
             });
 }
+exports.listTopPackages = (req,res)=>{
+    Package.find({}).populate({
+        path:'tests.testId'
+      }).sort({sold: -1}).limit(4).exec(function(err, data){
+    if(err){
+        console.log(err)
+
+        res.send({
+            status: 'fail',
+            data: {}
+          });
+    }
+    else{
+        res.send({
+        status: 'success',
+        code:200,
+        data: data
+      });
+            
+            }
+        });
+}
 
 exports.searchPackage = (req,res)=>{
 esService.getPackages(req.query.term).then((data)=>{

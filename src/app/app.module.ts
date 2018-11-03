@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from  '@angular/common/http';
+import { NgxLoadingModule } from 'ngx-loading';
 import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -11,6 +12,7 @@ import { ViewPackageComponent } from './package/view-package/view-package.compon
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookingComponent } from './package/booking/booking.component';
+import { SliderComponent } from './package/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,15 @@ import { BookingComponent } from './package/booking/booking.component';
     ViewPackageComponent,
     SearchComponent,
     FooterComponent,
-    BookingComponent
+    BookingComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
-    
-  ],
+    AppRoutingModule,
+    NgxLoadingModule.forRoot({})
+    ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
