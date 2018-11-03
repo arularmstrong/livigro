@@ -1,4 +1,4 @@
-<div class="container-fluid p-5">
+<div class="container-fluid p-5" style="margin-bottom: 3vw;">
   <div class="row m-auto text-center">
     
     <div class="col-md-3 princing-item red p-3" *ngFor="let package of packages">
@@ -26,13 +26,15 @@ c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.9
         <center>
         <p class="para"><i class="fa fa-cutlery" aria-hidden="true"></i> {{package.fasting}} hr fasting required </p>
     </center>
-        <button type="button" class="btn btn-lg btn-block  btn-custom demo-button" (click)="viewPackage(package)">Book</button>
+        <button  class="btn btn-lg btn-block  btn-custom demo-button" (click)="viewPackage(package)">Book</button>
       </div>
     </div>
    
 
            </div>
-          <a [routerLink]="'/packages'"> View All </a>
-           </div>
+           <center style="position: absolute;margin-top: 8vw;margin-left: 38.5vw;width: 20%;">
+          <button type="button" class="btn btn-lg btn-block  btn-custom demo-button" [routerLink]="'/packages'"> View All Packages </button>
+        </center>  
+        </div>
            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
    
