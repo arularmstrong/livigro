@@ -1,39 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from  '@angular/common/http';
-import { NgxLoadingModule } from 'ngx-loading';
-import {AppRoutingModule} from './app-routing.module';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
-import { ListPackageComponent } from './package/list-package/list-package.component';
-import { ViewPackageComponent } from './package/view-package/view-package.component';
-import { SearchComponent } from './search/search.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
-import { BookingComponent } from './package/booking/booking.component';
-import { SliderComponent } from './package/slider/slider.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PackageComponent } from './package/package.component';
+import { RegisterComponent } from './register/register.component';
+import { ViewpackageComponent } from './viewpackage/viewpackage.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    SidebarComponent,
+    FooterComponent,
     DashboardComponent,
     LoginComponent,
+    PaymentComponent,
+    PackageComponent,
     RegisterComponent,
-    ListPackageComponent,
-    ViewPackageComponent,
-    SearchComponent,
-    FooterComponent,
-    BookingComponent,
-    SliderComponent
+    ViewpackageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    RouterModule,
     AppRoutingModule,
-    NgxLoadingModule.forRoot({})
-    ],
-  schemas: [ NO_ERRORS_SCHEMA ],
+    FormsModule,
+    NgbModule.forRoot()
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
