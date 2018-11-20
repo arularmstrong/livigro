@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from  '../../api.service';
+import {PackageService} from '../package.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listpackage',
@@ -8,22 +11,27 @@ import { ApiService } from  '../../api.service';
 })
 export class PackageComponent implements OnInit {
 
-  public packages;
+  public  packages;
   public loading = false;
-  constructor(private  apiService:  ApiService) { }
+  constructor(private  apiService:  ApiService, private router: Router, private packageService : PackageService) { }
 
   ngOnInit() {
-    this.listTopPackages();
-  }
+    this.listPackages();
+}
 
-  public  listTopPackages(){
-    this.loading=true;
-    this.apiService.getTopPackages().subscribe((data:  any) => {
-        this.loading=false;
-        this.packages  =  data.data;
-        
-    });
-  }
+public  listPackages(){
+  this.loading = true;
+  this.apiService.getPackages().subscribe((data:  any) => {
+      this.loading = false;
+      this.packages  =  data.data;
+
+      console.log(data.data);
+  });
+}
+public viewPackage(data){
+  this.packageService.setPackageInfo(data);
+  this.router.navigate(['/viewpackage']);
+}
 
   
 
