@@ -3,7 +3,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><b>{{package.packageName}}</b></h4>
-          <p class="card-description"><b>$ {{package.price}}</b>b></p>
+          <p class="card-description"><b>$ {{package.price}}</b></p>
           <p class="card-description">Parameters Covered : <span>{{package.tests.length}}</span></p>
           <ul class="list-star" *ngFor="let test of package.tests;let i=index">
             <li *ngIf="i<3" class="card-description">{{test.testId.testName}}</li>
