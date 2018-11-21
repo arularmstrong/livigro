@@ -7,6 +7,7 @@ export class PackageService {
 
   constructor() { }
   private packageInfo;
+  private packageList;
   public setPackageInfo(data)
   {
     this.packageInfo=data;
@@ -14,5 +15,11 @@ export class PackageService {
   public getPackageInfo(){
     return this.packageInfo;
   }
-
+  public setPackageList(data)
+  {
+    this.packageList=data;
+  }
+  public getPackageList(){
+    return this.packageList;
+  }
 }

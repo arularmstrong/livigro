@@ -26,11 +26,11 @@
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
             </svg>
           </div>
-          <input id="search" type="text" placeholder="Find your Pacakage/Test" />
+          <input id="search" type="text" #term placeholder="Find your Pacakage/Test" />
         </div>
 
         <div class="input-field fifth-wrap">
-          <button class="btn-search" type="button">SEARCH</button>
+          <button class="btn-search" type="button" (click)="search(term.value)">SEARCH</button>
         </div>
       </div>
     </form>
