@@ -17,6 +17,9 @@ import { PackageComponent } from './package/listpackage/listpackage.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ViewpackageComponent } from './package/viewpackage/viewpackage.component';
 import { SearchComponent } from './search/search.component';
+import { OtpComponent } from './user/otp/otp.component';
+import { PasswordComponent } from './user/password/password.component';
+import { RegisteredComponent } from './user/registered/registered.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { SearchComponent } from './search/search.component';
     PackageComponent,
     RegisterComponent,
     ViewpackageComponent,
-    SearchComponent
+    SearchComponent,
+    OtpComponent,
+    PasswordComponent,
+    RegisteredComponent
   ],
   imports: [
     BrowserModule,
