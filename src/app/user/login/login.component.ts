@@ -6,6 +6,9 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/filter';
+import { Router } from '@angular/router';
+import  {ApiService} from '../../api.service';
+import {UserService} from '../user.service';
 
 
 @Component({
@@ -18,7 +21,7 @@ export class LoginComponent implements OnInit {
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
 
-  constructor() { }
+  constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }
 
 
 
@@ -31,5 +34,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-
+public login(mobile,password){
+  this.userService.setMobile(mobile);
+  this.apiService.login(password,mobile).subscribe((data:  any) => {
+    this.userService.setUserId(data.data.userId);
+    console.log(data.data.userId);
+    this.router.navigate(['/in']);
+});
+}
 }

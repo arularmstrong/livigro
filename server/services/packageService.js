@@ -26,24 +26,13 @@ exports.addPackage = (req,res)=>{
               });
         }
         else{
-            esService.createPackage(package).then(()=>{
-                res.send(
-                    {
-                        status: 'success',
-                        code: 200,
-                        data: {}
-                      }
-                );
-            },(err)=>{
-                res.send(
-                    {
-                        status: 'error',
-                        code: 400,
-                        data: {}
-                      }
-                );
-            });
-           
+            res.send(
+                {
+                    status: 'success',
+                    code: 200,
+                    data: {}
+                  }
+            );
         }
     });
 }
@@ -95,18 +84,14 @@ exports.listTopPackages = (req,res)=>{
 
 exports.searchPackage = (req,res)=>{
     console.log(req)
-esService.getPackages(req.query.term).then((data)=>{
-    res.send({
-        status: 'success',
-        code:200,
-        data: data
-      });
-},(err)=>{
-    res.send({
-        status: 'fail',
-        data: {}
-      });
-});
+    //query
+    res.send(
+        {
+            status: 'success',
+            code: 200,
+            data: {}
+          }
+    );
 }
 
 exports.addTest= (req,res)=>{

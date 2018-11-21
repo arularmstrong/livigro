@@ -24,5 +24,18 @@ createPackage(data){
 searchPackage(data){
   return  this.http.get(`${this.API_URL}/api/package/searchpackage`,data);
 }
+register(mobile){
+  return  this.http.post(`${this.API_URL}/api/user/register`,{'mobile':mobile});
+}
+verifyOTP(otp,mobile){
+  return  this.http.post(`${this.API_URL}/api/user/verifyOtp`,{'otp':otp,'mobile':mobile});
+}
+registerUser(password,mobile){
+  return  this.http.post(`${this.API_URL}/api/user/registeruser`,{'password':password,'mobile':mobile});
+}
+
+login(password,mobile){
+  return  this.http.post(`${this.API_URL}/api/user/login`,{'password':password,'mobile':mobile});
+}
 
 }

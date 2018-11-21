@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-
+import {UserService} from '../user/user.service';
+import {Router}  from  '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,6 +10,8 @@ import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NavbarComponent implements OnInit {
   public sidebarOpened = false;
+  public mobile='';
+  public isLogged;;
   toggleOffcanvas() {
     this.sidebarOpened = !this.sidebarOpened;
     if (this.sidebarOpened) {
@@ -18,10 +21,23 @@ export class NavbarComponent implements OnInit {
       document.querySelector('.sidebar-offcanvas').classList.remove('active');
     }
   }
-  constructor(config: NgbDropdownConfig) {
+  constructor(config: NgbDropdownConfig,private userService: UserService, private router:Router ) {
     config.placement = 'bottom-right';
   }
   ngOnInit() {
+
+  this.mobile=this.userService.getMobile();
+  if(this.userService.getUserId()){
+    this.isLogged=true;
   }
+  else this.isLogged=false;
+  console.log(this.isLogged);
+  }
+
+public logout(){
+  console.log("colickcl");
+  this.userService.setUserId('');
+  this.router.navigate(['/in']);
+}
 
 }

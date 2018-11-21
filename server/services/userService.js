@@ -29,7 +29,7 @@ exports.login = (req,res)=>{
 
 exports.verifyOtp = (req,res)=>{
 
-    User.findOne({userId:req.body.id,otp:req.body.otp},(err,data)=>{
+    User.findOne({mobile:req.body.mobile,otp:req.body.otp},(err,data)=>{
         if(err){
             res.send({
                 status: 'fail',
@@ -61,6 +61,7 @@ exports.register = (req,res)=>{
     var otp = Math.random()*10000;
     otp = otp.toString();
     otp = otp.slice(0,otp.indexOf('.'));
+    console.log(req.body.mobile);
     User.findOne({mobile: req.body.mobile},(err,data)=>{
         if(err){
             res.send({
@@ -116,7 +117,8 @@ exports.register = (req,res)=>{
 }
 
 exports.registerVerifiedUser = (req,res)=>{
-User.updateOne({userId: req.body.id},{$set:{status:101,password:req.body.password}}).then((data,err)=>{
+    console.log(req.body.mobile);
+User.updateOne({mobile: req.body.mobile},{$set:{status:101,password:req.body.password}}).then((data,err)=>{
     if(err){
         console.log(err)
         res.send({
@@ -135,7 +137,8 @@ User.updateOne({userId: req.body.id},{$set:{status:101,password:req.body.passwor
 }
 
 exports.resendOtp = ()=>{
-    User.findOne({userId:req.body.id},(err,data)=>{
+    console.log(req.body.mobile);
+    User.findOne({mobile:req.body.mobile},(err,data)=>{
         if(err){
             res.send({
                 status: 'fail',

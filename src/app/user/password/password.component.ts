@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs/Subject';
+import { Router } from '@angular/router';
+import  {ApiService} from '../../api.service';
+import {UserService} from '../user.service';
 
 
 @Component({
@@ -13,7 +16,7 @@ export class PasswordComponent implements OnInit {
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
 
-  constructor() { }
+  constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }
 
 
   @ViewChild('instance') instance: NgbTypeahead;
@@ -25,5 +28,9 @@ export class PasswordComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  public registerUser(password){
+    this.apiService.registerUser(password,this.userService.getMobile()).subscribe((data:  any) => {
+       this.router.navigate(['/registered']);
+  });
+  }
 }

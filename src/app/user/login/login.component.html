@@ -10,13 +10,13 @@
             <form class="forms-sample">
               <div class="form-group">
                 <label for="exampleInputEmail1">Mobile Number</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Mobile Number">
+                <input type="text" class="form-control" #mobile id="exampleInputEmail1" placeholder="Enter Mobile Number">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" #password id="exampleInputPassword1" placeholder="Password">
               </div>
-              <button type="submit" class="btn btn-success mr-2">Login</button>
+              <button type="submit" class="btn btn-success mr-2" (click)="login(mobile.value,password.value)">Login</button>
               
             </form>
           </div>
