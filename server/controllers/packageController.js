@@ -12,7 +12,7 @@ router.get('/listpackages', function (req, res) {
     packageService.listTopPackages(req,res);
   })
 
-  router.get('/searchpackage', function (req, res) {
+  router.post('/searchpackage', function (req, res) {
     packageService.searchPackage(req,res);
   })
 

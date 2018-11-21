@@ -83,15 +83,25 @@ exports.listTopPackages = (req,res)=>{
 }
 
 exports.searchPackage = (req,res)=>{
-    console.log(req)
-    //query
-    res.send(
-        {
-            status: 'success',
-            code: 200,
-            data: {}
-          }
-    );
+    
+    Package.find({packageName:req.body.term}).exec((err,data)=>{
+        console.log(req.body.term);
+        if(err){
+            console.log(err)
+            res.send({
+                status: 'fail',
+                data: {}
+              });
+        }
+        else{
+            res.send({
+                    status: 'success',
+                    code:200,
+                    data: data
+                  });
+                }
+    });
+    
 }
 
 exports.addTest= (req,res)=>{

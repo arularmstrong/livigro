@@ -8,7 +8,7 @@ var bonsaiUrl    = config.bonsai;
                                 host: bonsaiUrl,
 
                             log: 'trace'
-                            });*/
+                            });
 
 
-module.exports = client;
+module.exports = client;*/

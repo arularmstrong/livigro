@@ -22,7 +22,7 @@ createPackage(data){
 }
 
 searchPackage(data){
-  return  this.http.get(`${this.API_URL}/api/package/searchpackage`,data);
+  return  this.http.post(`${this.API_URL}/api/package/searchpackage`,{'term': data });
 }
 register(mobile){
   return  this.http.post(`${this.API_URL}/api/user/register`,{'mobile':mobile});

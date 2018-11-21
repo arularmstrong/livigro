@@ -37,7 +37,8 @@ export class NavbarComponent implements OnInit {
 public logout(){
   console.log("colickcl");
   this.userService.setUserId('');
-  this.router.navigate(['/in']);
+  console.log("colickc2");
+  this.router.navigate(['/login']);
 }
 
 }
