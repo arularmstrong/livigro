@@ -11,10 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  public term:string;
   currentRate: any;
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
   public packageList:any;
+  public  packages;
+  public loading = false;
   constructor(private packageService: PackageService,private apiService:ApiService,private router: Router) { }
 
 
@@ -27,6 +30,17 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.packageList = this.packageService.getPackageList();
     this.currentRate = 8;
+    this.listPackages();
+  }
+
+  public  listPackages(){
+    this.loading = true;
+    this.apiService.getPackages().subscribe((data:  any) => {
+        this.loading = false;
+        this.packages  =  data.data;
+  
+        console.log(data.data);
+    });
   }
 
   public search(term){
@@ -35,6 +49,11 @@ export class SearchComponent implements OnInit {
        this.router.navigate(['/search']);
        console.log(data.data);
   });
+  }
+
+  public viewPackage(data){
+    this.packageService.setPackageInfo(data);
+    this.router.navigate(['/viewpackage']);
   }
 
  

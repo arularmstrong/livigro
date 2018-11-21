@@ -85,7 +85,6 @@ exports.listTopPackages = (req,res)=>{
 exports.searchPackage = (req,res)=>{
     
     Package.find({packageName:req.body.term}).exec((err,data)=>{
-        console.log(req.body.term);
         if(err){
             console.log(err)
             res.send({

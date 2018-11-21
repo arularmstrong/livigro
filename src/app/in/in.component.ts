@@ -3,6 +3,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { ApiService } from  '../api.service';
 import { Router } from '@angular/router';
 import {PackageService} from '../package/package.service';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-in',
   templateUrl: './in.component.html',
@@ -14,6 +15,27 @@ export class InComponent implements OnInit {
   constructor(private apiService:ApiService,private router: Router,private packageService: PackageService) { }
 
   ngOnInit() {
+    $(document).ready(function(){
+      $("#search").focus(function() {
+        $(".search-box").addClass("border-searching");
+        $(".search-icon").addClass("si-rotate");
+      });
+      $("#search").blur(function() {
+        $(".search-box").removeClass("border-searching");
+        $(".search-icon").removeClass("si-rotate");
+      });
+      $("#search").keyup(function() {
+          if($(this).val().length > 0) {
+            $(".go-icon").addClass("go-in");
+          }
+          else {
+            $(".go-icon").removeClass("go-in");
+          }
+      });
+      $(".go-icon").click(function(){
+        $(".search-form").submit();
+      });
+  });
   }
 
   public search(term){
