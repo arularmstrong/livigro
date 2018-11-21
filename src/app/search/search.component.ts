@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs/Subject';
-
+import {PackageService} from '../package/package.service';
 
 @Component({
   selector: 'app-search',
@@ -12,8 +12,8 @@ export class SearchComponent implements OnInit {
   currentRate: any;
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
-
-  constructor() { }
+  public packageList:any;
+  constructor(private packageService: PackageService) { }
 
 
 
@@ -23,7 +23,9 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
+    this.packageList = this.packageService.getPackageList();
     this.currentRate = 8;
   }
 
+ 
 }

@@ -18,6 +18,11 @@ getTopPackages(){
 }
 
 createPackage(data){
-  return  this.http.post(`${this.API_URL}/package/`,data);
+  return  this.http.post(`${this.API_URL}/api/package/`,data);
 }
+
+searchPackage(data){
+  return  this.http.get(`${this.API_URL}/api/package/searchpackage`,data);
+}
+
 }

@@ -25,13 +25,25 @@ exports.addPackage = (req,res)=>{
                 data: {}
               });
         }
-        else{ res.send(
-            {
-                status: 'success',
-                code: 200,
-                data: {}
-              }
-        );
+        else{
+            esService.createPackage(package).then(()=>{
+                res.send(
+                    {
+                        status: 'success',
+                        code: 200,
+                        data: {}
+                      }
+                );
+            },(err)=>{
+                res.send(
+                    {
+                        status: 'error',
+                        code: 400,
+                        data: {}
+                      }
+                );
+            });
+           
         }
     });
 }
@@ -82,6 +94,7 @@ exports.listTopPackages = (req,res)=>{
 }
 
 exports.searchPackage = (req,res)=>{
+    console.log(req)
 esService.getPackages(req.query.term).then((data)=>{
     res.send({
         status: 'success',
