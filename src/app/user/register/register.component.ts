@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
 public register(mobile){
   this.userService.setMobile(mobile);
   this.apiService.register(mobile).subscribe((data:  any) => {
+    console.log(data);
      this.router.navigate(['/otp']);
 });
 }

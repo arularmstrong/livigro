@@ -6,6 +6,8 @@ var msg91api    = config.msg91api;
 var msg91senderId    = config.msg91senderid;
 var msg91dialcode = config.msg91dialcode;
 var msg91route = config.msg91route;
+var notifier = require('node-notifier');
+var path = require('path');
 
 var uuidv1 = require('uuid/v1');
 exports.login = (req,res)=>{
@@ -18,11 +20,31 @@ exports.login = (req,res)=>{
         }
         else
         {
-            
+            if(data == null)
+            {
+                res.send({
+                    status: 'login fail',
+                    data: {}
+                  });
+                  notifier.notify(
+                    {
+                      title: 'Livigro Authentication Failed',
+                      message: 'Incorrect Mobile number or Password',
+                      icon: path.join(__dirname, '/assets/images/logo.png'), 
+                      sound: true, 
+                      wait: true 
+                    },
+                    function(err, response) {
+                    }
+                  );
+            }
+        else
+        {
             res.send({
                 status: 'success',
                 data: data
               });
+        }
         }
     });
 }
@@ -50,6 +72,17 @@ exports.verifyOtp = (req,res)=>{
                     code:200,
                     data: {}
                   });
+                  notifier.notify(
+                    {
+                      title: 'Livigro Wrong OTP',
+                      message: 'Incorrect One Time Password',
+                      icon: path.join(__dirname, '/assets/images/logo.png'), 
+                      sound: true, 
+                      wait: true 
+                    },
+                    function(err, response) {
+                    }
+                  );
             }
         }
     });
@@ -76,6 +109,19 @@ exports.register = (req,res)=>{
                     code: 200,
                     data: data
                   });
+
+                  notifier.notify(
+                    {
+                      title: 'Livigro Register Failed',
+                      message: 'Mobile Number already exists',
+                      icon: path.join(__dirname, '/assets/images/logo.png'), 
+                      sound: true, 
+                      wait: true 
+                    },
+                    function(err, response) {
+                    }
+                  );
+
             }
             else{
                 var user = new User({
@@ -132,6 +178,17 @@ User.updateOne({mobile: req.body.mobile},{$set:{status:101,password:req.body.pas
             code: 200,
             data: {}
           });
+          notifier.notify(
+            {
+              title: 'Livigro',
+              message: 'Successfully Registered to Livigro',
+              icon: path.join(__dirname, '/assets/images/logo.png'), 
+              sound: true, 
+              wait: true 
+            },
+            function(err, response) {
+            }
+          );
     }
 });
 }

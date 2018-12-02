@@ -7,6 +7,7 @@ var user = require('./server/controllers/userController');
 var booking = require('./server/controllers/bookingController');
 var lab = require('./server/controllers/labController');
 var package = require('./server/controllers/packageController');
+var notifier = require('node-notifier');
 
 
 

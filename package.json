@@ -32,6 +32,7 @@
     "mdi": "^2.2.43",
     "mongoose": "^5.3.12",
     "msg91-sms": "^1.0.1",
+    "node-notifier": "^5.3.0",
     "node-sass": "^4.10.0",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
