@@ -80,7 +80,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assests/js/checkout.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
