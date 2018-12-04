@@ -31,13 +31,11 @@ export class NavbarComponent implements OnInit {
     this.isLogged=true;
   }
   else this.isLogged=false;
-  console.log(this.isLogged);
+
   }
 
 public logout(){
-  console.log("colickcl");
   this.userService.setUserId('');
-  console.log("colickc2");
   this.router.navigate(['/login']);
 }
 

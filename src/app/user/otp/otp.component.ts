@@ -30,7 +30,10 @@ export class OtpComponent implements OnInit {
   }
 public verifyOTP(otp){
   this.apiService.verifyOTP(otp,this.userService.getMobile()).subscribe((data:  any) => {
+    if( data.status == 'success')
+    {
     this.router.navigate(['/password']);
+    }
 });
 }
 }

@@ -68,7 +68,7 @@ exports.verifyOtp = (req,res)=>{
             }
             else{
                 res.send({
-                    status: 'success',
+                    status: 'wrong',
                     code:200,
                     data: {}
                   });
@@ -104,7 +104,7 @@ exports.register = (req,res)=>{
         else{
             if(data){
                 res.send({
-                    status: 'success',
+                    status: 'exists',
                     code: 200,
                     data: data
                   });
@@ -162,7 +162,7 @@ exports.register = (req,res)=>{
 }
 
 exports.registerVerifiedUser = (req,res)=>{
-    console.log(req.body.mobile);
+
 User.updateOne({mobile: req.body.mobile},{$set:{status:101,password:req.body.password}}).then((data,err)=>{
     if(err){
         console.log(err)

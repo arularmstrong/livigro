@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }
 
-
+  public mobile='';
+  public isLogged;
 
   @ViewChild('instance') instance: NgbTypeahead;
   focus$ = new Subject<string>();
@@ -33,13 +34,25 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+
+
   }
 public login(mobile,password){
   this.userService.setMobile(mobile);
   this.apiService.login(password,mobile).subscribe((data:  any) => {
     this.userService.setUserId(data.data.userId);
-    console.log(data.data.userId);
+
+    this.mobile=this.userService.getMobile();
+    if(this.userService.getUserId()){
+      this.isLogged=true;
+    }
+    else this.isLogged=false;
+
+
+    if(this.isLogged)
+    {
     this.router.navigate(['/in']);
+    }
 });
 }
 }
