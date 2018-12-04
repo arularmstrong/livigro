@@ -4,7 +4,7 @@
     <div class="card-body">
       <h4 class="card-title" style="text-align:center;font-size:larger"><b>{{packageInfo.packageName}}</b></h4>
       <div class="template-demo">
-        <button type="button" class="btn btn-success btn-fw" style="float:right" routerLink="/payment" >Book Now</button>
+        <button type="button" class="btn btn-success btn-fw" style="float:right" (click)="bookPackage(packageInfo)" >Book Now</button>
       </div>
       <p class="card-description"><b>$ {{packageInfo.price}}</b></p>
       <p class="card-description">Parameters Covered : <span>{{packageInfo.tests.length}}</span></p>

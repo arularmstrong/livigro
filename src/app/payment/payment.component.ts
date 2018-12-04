@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WindowRefService } from './window-ref.service';
+import {PackageService} from '../package/package.service';
 
 @Component({
   selector: 'app-payment',
@@ -8,30 +9,47 @@ import { WindowRefService } from './window-ref.service';
 })
 export class PaymentComponent implements OnInit {
 
-  constructor( private winRef: WindowRefService ) { }
+  public packageBook;
+  public options;
+
+  constructor( private winRef: WindowRefService , private packageService: PackageService ) { }
+
+  ngOnInit() { 
+
+    this.packageBook=this.packageService.getPackageInfo();
+
+   }
+
   rzp1:any;
  
-  public options = {
-    "key": "rzp_live_ELHwdvE8q1GRxE",
-    "amount": "2000", 
-    "name": "Livigro",
-    "description": "Buy Livigro Package",
-    "image": "assets/images/Livigro-Logo.jpg",
-    "handler": function (response){
-        alert(response.razorpay_payment_id);
-    },
-    "theme": {
-        "color": "#dd3f7e"
-    }
-};
+  
 
 
-  public initPay():void {
+
+
+  public initPay(data):void {
+    this.packageService.setPackageInfo(data);
+    this.packageBook=this.packageService.getPackageInfo();
+    
+    this.options = {
+      "key": "rzp_live_ELHwdvE8q1GRxE",
+      "amount": this.packageBook.price * 100, 
+      "name": "Livigro",
+      "description": "Buy Livigro Package",
+      "image": "assets/images/Livigro-Logo.jpg",
+      "handler": function (response){
+          alert(response.razorpay_payment_id);
+      },
+      "theme": {
+          "color": "#dd3f7e"
+      }
+  };
+
     this.rzp1 = new this.winRef.nativeWindow.Razorpay(this.options);
     this.rzp1.open();
  }
 
-  ngOnInit() {  }
+  
   
 
 }

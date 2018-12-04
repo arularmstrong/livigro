@@ -94,7 +94,6 @@ exports.register = (req,res)=>{
     var otp = Math.random()*10000;
     otp = otp.toString();
     otp = otp.slice(0,otp.indexOf('.'));
-    console.log(req.body.mobile);
     User.findOne({mobile: req.body.mobile},(err,data)=>{
         if(err){
             res.send({
@@ -194,7 +193,6 @@ User.updateOne({mobile: req.body.mobile},{$set:{status:101,password:req.body.pas
 }
 
 exports.resendOtp = ()=>{
-    console.log(req.body.mobile);
     User.findOne({mobile:req.body.mobile},(err,data)=>{
         if(err){
             res.send({
