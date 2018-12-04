@@ -42,7 +42,6 @@ export class InComponent implements OnInit {
     this.apiService.searchPackage(term).subscribe((data:  any) => {
       this.packageService.setPackageList(data.data);
        this.router.navigate(['/search']);
-       console.log(data.data);
   });
   }
 

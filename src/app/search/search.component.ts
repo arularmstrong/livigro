@@ -38,16 +38,15 @@ export class SearchComponent implements OnInit {
     this.apiService.getPackages().subscribe((data:  any) => {
         this.loading = false;
         this.packages  =  data.data;
-  
-        console.log(data.data);
     });
   }
+
+
 
   public search(term){
     this.apiService.searchPackage(term).subscribe((data:  any) => {
       this.packageService.setPackageList(data.data);
        this.router.navigate(['/search']);
-       console.log(data.data);
   });
   }
 

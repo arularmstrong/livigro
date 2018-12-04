@@ -34,7 +34,7 @@ export class PaymentComponent implements OnInit {
     this.options = {
       "key": "rzp_live_ELHwdvE8q1GRxE",
       "amount": this.packageBook.price * 100, 
-      "name": "Livigro",
+      "name": this.packageBook.packageName,
       "description": "Buy Livigro Package",
       "image": "assets/images/Livigro-Logo.jpg",
       "handler": function (response){

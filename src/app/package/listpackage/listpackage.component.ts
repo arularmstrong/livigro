@@ -24,8 +24,6 @@ public  listPackages(){
   this.apiService.getPackages().subscribe((data:  any) => {
       this.loading = false;
       this.packages  =  data.data;
-
-      console.log(data.data);
   });
 }
 public viewPackage(data){
