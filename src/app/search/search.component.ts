@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import {PackageService} from '../package/package.service';
 import { ApiService } from  '../api.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,7 @@ export class SearchComponent implements OnInit {
   public packageList:any;
   public  packages;
   public loading = false;
-  constructor(private packageService: PackageService,private apiService:ApiService,private router: Router) { }
+  constructor(private packageService: PackageService,private apiService:ApiService,private router: Router,private spinner: NgxSpinnerService) { }
 
 
 
@@ -31,6 +32,15 @@ export class SearchComponent implements OnInit {
     this.packageList = this.packageService.getPackageList();
     this.currentRate = 8;
     this.listPackages();
+
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 1 second */
+        this.spinner.hide();
+    }, 1000);
+
   }
 
   public  listPackages(){

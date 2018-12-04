@@ -21,11 +21,14 @@ export class LoginComponent implements OnInit {
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
 
+
+  display='none'; 
+
   constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }
 
   public mobile='';
   public isLogged;
-
+  public modals: any[] = [];
   @ViewChild('instance') instance: NgbTypeahead;
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
@@ -33,10 +36,16 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
-
-
+    
 
   }
+
+
+ closeModalDialog(){
+  this.display='none'; 
+ }
+
+  
 public login(mobile,password){
   this.userService.setMobile(mobile);
   this.apiService.login(password,mobile).subscribe((data:  any) => {
@@ -53,6 +62,13 @@ public login(mobile,password){
     {
     this.router.navigate(['/in']);
     }
+    else
+    {
+      this.display='block';
+    }
 });
 }
+
+
+
 }

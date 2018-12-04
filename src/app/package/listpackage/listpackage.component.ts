@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from  '../../api.service';
 import {PackageService} from '../package.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { Router } from '@angular/router';
 
@@ -13,10 +14,17 @@ export class PackageComponent implements OnInit {
 
   public  packages;
   public loading = false;
-  constructor(private  apiService:  ApiService, private router: Router, private packageService : PackageService) { }
+  constructor(private  apiService:  ApiService, private router: Router, private packageService : PackageService,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.listPackages();
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 1 second */
+        this.spinner.hide();
+    }, 1000);
 }
 
 public  listPackages(){

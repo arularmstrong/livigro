@@ -21,12 +21,15 @@
       <ul style="list-style-type: none;">
         <li class="totalRow"><span class="label">Subtotal</span><span class="value">₹{{packageBook.price}}</span></li>
         
-            <li class="totalRow"><span class="label">Shipping</span><span class="value">₹0.00</span></li>
-        
               <li class="totalRow"><span class="label">Tax</span><span class="value">₹0.00</span></li>
               <li class="totalRow final"><span class="label">Total</span><span class="value">₹{{packageBook.price}}</span></li>
         <li class="totalRow"><a  class="btn continue" id="rzp-button1" (click)="initPay(packageBook);">Checkout</a></li>
       </ul>
     </div>
   </div>
-
+  <ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)"
+  size = "large"
+  color = "#fff"
+  type = "ball-clip-rotate-multiple"
+  ></ngx-spinner>

@@ -4,6 +4,8 @@ import { ApiService } from  '../api.service';
 import { Router } from '@angular/router';
 import {PackageService} from '../package/package.service';
 import * as $ from 'jquery';
+
+
 @Component({
   selector: 'app-in',
   templateUrl: './in.component.html',

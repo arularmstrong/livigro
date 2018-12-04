@@ -16,6 +16,8 @@ export class OtpComponent implements OnInit {
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
 
+  display='none';
+
   constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }
 
 
@@ -28,11 +30,20 @@ export class OtpComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  closeModalDialog(){
+    this.display='none'; 
+   }
+
 public verifyOTP(otp){
   this.apiService.verifyOTP(otp,this.userService.getMobile()).subscribe((data:  any) => {
     if( data.status == 'success')
     {
     this.router.navigate(['/password']);
+    }
+    else
+    {
+      this.display='block';
     }
 });
 }

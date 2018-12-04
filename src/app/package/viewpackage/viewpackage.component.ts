@@ -17,9 +17,16 @@ export class ViewpackageComponent implements OnInit {
 
   constructor(private packageService: PackageService, private router: Router , private userService:UserService ) { }
 
+  display='none'; 
+
   ngOnInit() {
    this.packageInfo=this.packageService.getPackageInfo();
   }
+
+  closeModalDialog(){
+    this.display='none'; 
+    this.router.navigate(['/login']);
+   }
 
   public bookPackage(data){
     this.mobile=this.userService.getMobile();
@@ -36,7 +43,7 @@ export class ViewpackageComponent implements OnInit {
     }
     else
    {
-    this.router.navigate(['/login']);
+    this.display='block';
    }
 
   }

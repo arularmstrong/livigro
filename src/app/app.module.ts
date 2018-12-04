@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from  '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WindowRefService } from './payment/window-ref.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -45,6 +46,7 @@ import { RegisteredComponent } from './user/registered/registered.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    NgxSpinnerModule,
     NgbModule.forRoot()
   ],
   providers: [ WindowRefService ],

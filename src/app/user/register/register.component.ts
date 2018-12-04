@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
 
+  display='none';
+
   constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }
 
 
@@ -28,12 +30,20 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  closeModalDialog(){
+    this.display='none'; 
+   }
+
 public register(mobile){
   this.userService.setMobile(mobile);
   this.apiService.register(mobile).subscribe((data:  any) => {
     if( data.status == 'success')
     {
      this.router.navigate(['/otp']);
+    }
+    else
+    {
+      this.display='block';
     }
 });
 }
