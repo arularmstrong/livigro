@@ -1,4 +1,32 @@
 <app-navbar></app-navbar>
-<b>{{packageBook.packageName}}</b>
-<button id="rzp-button1" (click)="initPay(packageBook);">Pay</button>
+<div class="wrap cf">
+    <h1 class="projTitle">Livigro Purchase</h1>
+    <div class="cart">
+      <ul class="cartWrap">
+        <li class="items odd">
+          
+      <div class="infoWrap"> 
+          <div class="cartSection">
+            <h3>{{packageBook.packageName}}</h3>  
+          </div>  
+          <div class="prodTotal cartSection">
+            <p>₹{{packageBook.price}}</p>
+          </div>
+        </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="subtotal cf">
+      <ul style="list-style-type: none;">
+        <li class="totalRow"><span class="label">Subtotal</span><span class="value">₹{{packageBook.price}}</span></li>
+        
+            <li class="totalRow"><span class="label">Shipping</span><span class="value">₹0.00</span></li>
+        
+              <li class="totalRow"><span class="label">Tax</span><span class="value">₹0.00</span></li>
+              <li class="totalRow final"><span class="label">Total</span><span class="value">₹{{packageBook.price}}</span></li>
+        <li class="totalRow"><a  class="btn continue" id="rzp-button1" (click)="initPay(packageBook);">Checkout</a></li>
+      </ul>
+    </div>
+  </div>
 

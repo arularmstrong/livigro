@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WindowRefService } from './window-ref.service';
 import {PackageService} from '../package/package.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-payment',
@@ -18,15 +19,12 @@ export class PaymentComponent implements OnInit {
 
     this.packageBook=this.packageService.getPackageInfo();
 
+
+
    }
 
   rzp1:any;
  
-  
-
-
-
-
   public initPay(data):void {
     this.packageService.setPackageInfo(data);
     this.packageBook=this.packageService.getPackageInfo();

@@ -6,7 +6,7 @@
       <div class="template-demo">
         <button type="button" class="btn btn-success btn-fw" style="float:right" (click)="bookPackage(packageInfo)" >Book Now</button>
       </div>
-      <p class="card-description"><b>$ {{packageInfo.price}}</b></p>
+      <p class="card-description"><b>₹ {{packageInfo.price}}</b></p>
       <p class="card-description">Parameters Covered : <span>{{packageInfo.tests.length}}</span></p>
       <ul class="list-star" *ngFor="let test of packageInfo.tests">
         <li class="card-description">{{test.testId.testName}}</li>
