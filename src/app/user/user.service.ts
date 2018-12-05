@@ -6,9 +6,11 @@ import { Injectable } from '@angular/core';
 export class UserService {
   private mobile: string;
   private userId: String;
+  private payment: String;
   constructor() { 
     this.mobile='';
     this.userId='';
+    this.payment='';
   }
   public setMobile(number){
     this.mobile=number;
@@ -22,4 +24,9 @@ export class UserService {
   public getUserId(){
     return this.userId;
   }
+
+
+
 }
+
+  

@@ -2,6 +2,14 @@
 <div class="wrap cf">
     <h1 class="projTitle">Livigro Purchase</h1>
     <div class="cart">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" #name id="exampleInputEmail1"  placeholder="Enter Name" required>
+            <label for="exampleInputEmail1">Mobile Number</label>
+            <input type="number" class="form-control" #mobile id="exampleInputEmail1" minlength="10" maxlength="10" placeholder="Enter Mobile Number" required>
+            <label for="exampleInputEmail1">Address</label>
+            <input type="text" class="form-control" #address id="exampleInputEmail1" placeholder="Enter Address" required>
+          </div>
       <ul class="cartWrap">
         <li class="items odd">
           
@@ -23,7 +31,7 @@
         
               <li class="totalRow"><span class="label">Tax</span><span class="value">₹0.00</span></li>
               <li class="totalRow final"><span class="label">Total</span><span class="value">₹{{packageBook.price}}</span></li>
-        <li class="totalRow"><a  class="btn continue" id="rzp-button1" (click)="initPay(packageBook);">Checkout</a></li>
+        <li class="totalRow"><a  class="btn continue" id="rzp-button1" (click)="initPay(packageBook,name.value,mobile.value,address.value);">Checkout</a></li>
       </ul>
     </div>
   </div>

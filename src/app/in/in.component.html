@@ -1,5 +1,14 @@
 <app-navbar></app-navbar>
-
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" [ngStyle]="{'display':display}" >
+    <div class="modal-content">
+      <div class="modal-header">
+          <h6>Payment Successfully</h6>
+        <span class="close" (click)="closeModalDialog()">&times;</span>
+        
+      </div>
+    </div>
+  </div>
 
 <main style="  font-family: 'Montserrat Alternates', sans-serif;
 color: #FFFFFF;

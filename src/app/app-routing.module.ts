@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'viewpackage', component: ViewpackageComponent },
   { path: 'search', component: SearchComponent },
   { path: 'payment', component: PaymentComponent },
-  { path: 'package', component: PackageComponent },
+  { path: 'package', component: PackageComponent }
 ];
 
 @NgModule({

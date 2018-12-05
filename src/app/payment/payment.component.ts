@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WindowRefService } from './window-ref.service';
 import {PackageService} from '../package/package.service';
-import * as $ from 'jquery';
+import {UserService} from '../user/user.service';
+import  {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-payment',
@@ -12,31 +13,46 @@ export class PaymentComponent implements OnInit {
 
   public packageBook;
   public options;
-
-  constructor( private winRef: WindowRefService , private packageService: PackageService ) { }
+  public UserId;
+  
+  constructor( private winRef: WindowRefService ,   private apiService:ApiService, private packageService: PackageService,private userService:UserService ) { }
 
   ngOnInit() { 
 
     this.packageBook=this.packageService.getPackageInfo();
 
 
-
    }
 
   rzp1:any;
  
-  public initPay(data):void {
+  public initPay(data,name,mobile,address):void {
     this.packageService.setPackageInfo(data);
     this.packageBook=this.packageService.getPackageInfo();
+    this.UserId=this.userService.getUserId();
     
+    localStorage.setItem('UserId', JSON.stringify(this.UserId));
+    localStorage.setItem('packageId', JSON.stringify(this.packageBook.packageId));
+    localStorage.setItem('name', JSON.stringify(name));
+    localStorage.setItem('mobile', JSON.stringify(mobile));
+    localStorage.setItem('address', JSON.stringify(address));
     this.options = {
       "key": "rzp_live_ELHwdvE8q1GRxE",
-      "amount": this.packageBook.price * 100, 
+      "amount": this.packageBook.price * 100,  
       "name": this.packageBook.packageName,
       "description": "Buy Livigro Package",
       "image": "assets/images/Livigro-Logo.jpg",
       "handler": function (response){
-          alert(response.razorpay_payment_id);
+          if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+            location.href = '/payment';
+          } else {
+            location.href = '/';
+          }
+
+      },
+      "callback_url":"/in",
+      "prefill": {
+          "name": name,
       },
       "theme": {
           "color": "#dd3f7e"
@@ -45,9 +61,6 @@ export class PaymentComponent implements OnInit {
 
     this.rzp1 = new this.winRef.nativeWindow.Razorpay(this.options);
     this.rzp1.open();
+  
  }
-
-  
-  
-
 }

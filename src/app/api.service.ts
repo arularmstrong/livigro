@@ -38,4 +38,8 @@ login(password,mobile){
   return  this.http.post(`${this.API_URL}/api/user/login`,{'password':password,'mobile':mobile});
 }
 
+bookPackage(userId,packageId,name,mobile,address){
+  return  this.http.post(`${this.API_URL}/api/booking/bookpackage`,{'userId':userId,'packageId':packageId,'name':name,'mobile':mobile,'address':address});
+}
+
 }
