@@ -104,7 +104,7 @@ exports.register = (req,res)=>{
         else{
             if(data){
                 res.send({
-                    status: 'exists',
+                    status: 'fail',
                     code: 200,
                     data: data
                   });
@@ -137,20 +137,21 @@ exports.register = (req,res)=>{
                           });
                     }
                     else{
+                        res.send(
+                            {
+                                status: 'success',
+                                code: 200,
+                                data: {}
+                              }
+                        );
                         var number= req.body.mobile;
-                        var message= otp;
+                        var message= "Your Livigro Registeration OTP is " + otp;
                         var senderid= msg91senderId;
                         var route= msg91route;
                         var dialcode= msg91dialcode;
                         msg91.sendOneandGetJson(msg91api,number,message,senderid,route,dialcode,function(response){
                             console.log(response);
-                            res.send(
-                                {
-                                    status: 'success',
-                                    code: 200,
-                                    data: {}
-                                  }
-                            ); 
+                             
                             });
                         
                     }
@@ -202,20 +203,21 @@ exports.resendOtp = ()=>{
         }
         else
         {
+            res.send(
+                {
+                    status: 'success',
+                    code: 200,
+                    data: {}
+                  }
+            );
             var number= req.body.mobile;
-            var message= data.otp;
+            var message= "Your Livigro Registeration OTP is " + data.otp;
             var senderid= msg91senderId;
             var route= msg91route;
             var dialcode= msg91dialcode;
             msg91.sendOneandGetJson(msg91api,number,message,senderid,route,dialcode,function(response){
                 console.log(response);
-                res.send(
-                    {
-                        status: 'success',
-                        code: 200,
-                        data: {}
-                      }
-                ); 
+                 
                 });
         }
     });
