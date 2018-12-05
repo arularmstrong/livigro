@@ -50,7 +50,15 @@ export class PaymentComponent implements OnInit {
           }
 
       },
-      "callback_url":"/in",
+    "modal": {
+        "ondismiss": function(){
+      localStorage.setItem('UserId', JSON.stringify(''));
+      localStorage.setItem('packageId', JSON.stringify(''));
+      localStorage.setItem('name', JSON.stringify(''));
+      localStorage.setItem('mobile', JSON.stringify(''));
+      localStorage.setItem('address', JSON.stringify(''));
+        }
+    },
       "prefill": {
           "name": name,
       },
