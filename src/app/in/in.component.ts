@@ -25,8 +25,8 @@ export class InComponent implements OnInit {
   constructor(private apiService:ApiService,private router: Router,private packageService: PackageService,private userService:UserService) { }
 
   ngOnInit() {
-    this.paymentUserId = JSON.parse(localStorage.getItem('name'));
-    this.paymentpackageId = JSON.parse(localStorage.getItem('mobile'));
+    this.paymentUserId = JSON.parse(localStorage.getItem('UserId'));
+    this.paymentpackageId = JSON.parse(localStorage.getItem('packageId'));
     this.paymentName = JSON.parse(localStorage.getItem('name'));
     this.paymentMobile = JSON.parse(localStorage.getItem('mobile'));
     this.paymentAddress = JSON.parse(localStorage.getItem('address'));
