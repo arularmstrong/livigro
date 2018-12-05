@@ -36,6 +36,7 @@ export class PaymentComponent implements OnInit {
     localStorage.setItem('name', JSON.stringify(name));
     localStorage.setItem('mobile', JSON.stringify(mobile));
     localStorage.setItem('address', JSON.stringify(address));
+    localStorage.setItem('paymentpop', JSON.stringify('popdisplaydataforpayment'));
     this.options = {
       "key": "rzp_live_ELHwdvE8q1GRxE",
       "amount": this.packageBook.price * 100,  
@@ -57,6 +58,7 @@ export class PaymentComponent implements OnInit {
       localStorage.setItem('name', JSON.stringify(''));
       localStorage.setItem('mobile', JSON.stringify(''));
       localStorage.setItem('address', JSON.stringify(''));
+      localStorage.setItem('paymentpop', JSON.stringify(''));
         }
     },
       "prefill": {

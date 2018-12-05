@@ -19,17 +19,45 @@ export class InComponent implements OnInit {
   public paymentName:String;
   public paymentMobile:String;
   public paymentAddress:String;
+  public paymentPop:String;
 
   display='none';
 
   constructor(private apiService:ApiService,private router: Router,private packageService: PackageService,private userService:UserService) { }
 
   ngOnInit() {
+
+    $(document).ready(function(){
+      $("#search").focus(function() {
+        $(".search-box").addClass("border-searching");
+        $(".search-icon").addClass("si-rotate");
+      });
+      $("#search").blur(function() {
+        $(".search-box").removeClass("border-searching");
+        $(".search-icon").removeClass("si-rotate");
+      });
+      $("#search").keyup(function() {
+          if($(this).val().length > 0) {
+            $(".go-icon").addClass("go-in");
+          }
+          else {
+            $(".go-icon").removeClass("go-in");
+          }
+      });
+      $(".go-icon").click(function(){
+        $(".search-form").submit();
+      });
+  });
+
+
+
+
     this.paymentUserId = JSON.parse(localStorage.getItem('UserId'));
     this.paymentpackageId = JSON.parse(localStorage.getItem('packageId'));
     this.paymentName = JSON.parse(localStorage.getItem('name'));
     this.paymentMobile = JSON.parse(localStorage.getItem('mobile'));
     this.paymentAddress = JSON.parse(localStorage.getItem('address'));
+    this.paymentPop = JSON.parse(localStorage.getItem('paymentpop'));
    if(this.paymentName != '' && this.paymentMobile != '' && this.paymentAddress != '' && this.paymentUserId != '' && this.paymentpackageId != '')
    {
     this.apiService.bookPackage(this.paymentUserId,this.paymentpackageId,this.paymentName,this.paymentMobile,this.paymentAddress).subscribe((data:  any) => {
@@ -38,7 +66,10 @@ export class InComponent implements OnInit {
       localStorage.setItem('name', JSON.stringify(''));
       localStorage.setItem('mobile', JSON.stringify(''));
       localStorage.setItem('address', JSON.stringify(''));
+      if(this.paymentPop == 'popdisplaydataforpayment')
+      {
       this.display='block';
+      }
     });
    }
    else
@@ -48,7 +79,8 @@ export class InComponent implements OnInit {
   }
 
   closeModalDialog(){
-    this.display='none'; 
+    this.display='none';
+    localStorage.clear(); 
    }
 
   public search(term){
