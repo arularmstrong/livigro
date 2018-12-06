@@ -26,7 +26,6 @@ export class InComponent implements OnInit {
   constructor(private apiService:ApiService,private router: Router,private packageService: PackageService,private userService:UserService) { }
 
   ngOnInit() {
-
     $(document).ready(function(){
       $("#search").focus(function() {
         $(".search-box").addClass("border-searching");

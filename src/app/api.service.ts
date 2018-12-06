@@ -38,6 +38,14 @@ login(password,mobile){
   return  this.http.post(`${this.API_URL}/api/user/login`,{'password':password,'mobile':mobile});
 }
 
+editProfile(mobile,name,gender,dob,email,city,door,street,postcode){
+  return  this.http.post(`${this.API_URL}/api/user/editprofile`,{'mobile':mobile,'name':name,'gender':gender,'dob':dob,'email':email,'city':city,'door':door,'street':street,'postcode':postcode});
+}
+
+viewProfile(mobile){
+  return  this.http.post(`${this.API_URL}/api/user/viewprofile`,{'mobile':mobile});
+}
+
 bookPackage(userId,packageId,name,mobile,address){
   return  this.http.post(`${this.API_URL}/api/booking/bookpackage`,{'userId':userId,'packageId':packageId,'name':name,'mobile':mobile,'address':address});
 }

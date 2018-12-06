@@ -223,3 +223,46 @@ exports.resendOtp = ()=>{
     });
 }
 
+
+exports.editProfile = (req,res)=>{
+    User.updateOne({mobile:req.body.mobile}, { $set: { name: req.body.name , gender: req.body.gender , dob: req.body.dob , email: req.body.email , city:req.body.city ,  door:req.body.door, street:req.body.street, postcode:req.body.postcode     }},(err,data)=>{
+        if(err){
+            res.send({
+                status: 'fail',
+                data: {}
+              });
+        }
+        else
+        {
+            res.send(
+                {
+                    status: 'success',
+                    code: 200,
+                    data: data
+                  }
+            );
+        }
+    });
+}
+
+
+exports.viewProfile = (req,res)=>{
+    User.findOne({mobile:req.body.mobile},(err,data)=>{
+        if(err){
+            res.send({
+                status: 'fail',
+                data: {}
+              });
+        }
+        else
+        {
+            res.send(
+                {
+                    status: 'success',
+                    code: 200,
+                    data: data
+                  }
+            );
+        }
+    });
+}

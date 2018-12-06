@@ -21,4 +21,12 @@ router.get('/resendotp', function (req, res) {
   userService.resendOtp(req,res);
 })
 
+router.post('/editprofile', function (req, res) {
+  userService.editProfile(req,res);
+})
+
+router.post('/viewprofile', function (req, res) {
+  userService.viewProfile(req,res);
+})
+
 module.exports = router;
