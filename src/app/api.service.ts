@@ -24,6 +24,11 @@ createPackage(data){
 searchPackage(data){
   return  this.http.post(`${this.API_URL}/api/package/searchpackage`,{'term': data });
 }
+
+searchPackageId(data){
+  return  this.http.post(`${this.API_URL}/api/package/searchpackageid`,{'term': data });
+}
+
 register(mobile){
   return  this.http.post(`${this.API_URL}/api/user/register`,{'mobile':mobile});
 }
@@ -48,6 +53,14 @@ viewProfile(mobile){
 
 otpLogin(mobile){
   return  this.http.post(`${this.API_URL}/api/user/otplogin`,{'mobile':mobile});
+}
+
+viewBooking(userId){
+  return  this.http.post(`${this.API_URL}/api/booking/viewbooking`,{'userId':userId});
+}
+
+viewAllbooking(){
+  return  this.http.get(`${this.API_URL}/api/booking/viewallbooking`);
 }
 
 bookPackage(userId,packageId,name,mobile,address){

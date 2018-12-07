@@ -27,6 +27,7 @@ import { OtpComponent } from './user/otp/otp.component';
 import { PasswordComponent } from './user/password/password.component';
 import { RegisteredComponent } from './user/registered/registered.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
+import { MybookingsComponent } from './user/mybookings/mybookings.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EditProfileComponent } from './user/edit-profile/edit-profile.component
     OtpComponent,
     PasswordComponent,
     RegisteredComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    MybookingsComponent
   ],
   imports: [
     BrowserModule,

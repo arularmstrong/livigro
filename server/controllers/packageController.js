@@ -16,6 +16,10 @@ router.get('/listpackages', function (req, res) {
     packageService.searchPackage(req,res);
   })
 
+  router.post('/searchpackageid', function (req, res) {
+    packageService.searchPackageId(req,res);
+  })
+
   router.post('/addtest', function (req, res) {
     packageService.addTest(req,res);
   })
