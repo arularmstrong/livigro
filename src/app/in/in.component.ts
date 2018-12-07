@@ -57,7 +57,7 @@ export class InComponent implements OnInit {
     this.paymentMobile = JSON.parse(localStorage.getItem('mobile'));
     this.paymentAddress = JSON.parse(localStorage.getItem('address'));
     this.paymentPop = JSON.parse(localStorage.getItem('paymentpop'));
-   if(this.paymentName != '' && this.paymentMobile != '' && this.paymentAddress != '' && this.paymentUserId != '' && this.paymentpackageId != '')
+   if(this.paymentName != '' && this.paymentMobile != '' && this.paymentAddress != '' && this.paymentUserId != '' && this.paymentpackageId != '' && this.paymentPop == 'popdisplaydataforpayment')
    {
     this.apiService.bookPackage(this.paymentUserId,this.paymentpackageId,this.paymentName,this.paymentMobile,this.paymentAddress).subscribe((data:  any) => {
       localStorage.setItem('UserId', JSON.stringify(''));
@@ -65,10 +65,9 @@ export class InComponent implements OnInit {
       localStorage.setItem('name', JSON.stringify(''));
       localStorage.setItem('mobile', JSON.stringify(''));
       localStorage.setItem('address', JSON.stringify(''));
-      if(this.paymentPop == 'popdisplaydataforpayment')
-      {
+      localStorage.setItem('paymentpop', JSON.stringify(''));
+      localStorage.clear();
       this.display='block';
-      }
     });
    }
    else
