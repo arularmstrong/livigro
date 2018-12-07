@@ -54,7 +54,11 @@
                   <label for="exampleInputCity1">Postcode</label>
                   <input type="text" class="form-control" #postcode value="{{userDetail.postcode}}" id="exampleInputCity1" placeholder="Postcode">
                 </div>
-          <button type="submit" class="btn btn-success mr-2" (click)="edit(name.value,gender.value,dob.value,email.value,city.value,door.value,street.value,postcode.value)">Update</button>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Password</label>
+                    <input type="text" class="form-control" #password value="{{userDetail.password}}" id="exampleInputCity1" placeholder="Password">
+                  </div>
+          <button type="submit" class="btn btn-success mr-2" (click)="edit(name.value,gender.value,dob.value,email.value,city.value,door.value,street.value,postcode.value,password.value)">Update</button>
           <button class="btn btn-light" routerLink="/in">Cancel</button>
         </form>
       </div>

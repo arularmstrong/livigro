@@ -25,10 +25,10 @@ export class EditProfileComponent implements OnInit {
     this.router.navigate(['/in']); 
    }
 
-  public edit(name,gender,dob,email,city,door,street,postcode)
+  public edit(name,gender,dob,email,city,door,street,postcode,password)
   {
     this.mobile = this.userService.getMobile();
-    this.apiService.editProfile(this.mobile,name,gender,dob,email,city,door,street,postcode).subscribe((data:  any) => {
+    this.apiService.editProfile(this.mobile,name,gender,dob,email,city,door,street,postcode,password).subscribe((data:  any) => {
         this.display='block';
     });
   }

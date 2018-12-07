@@ -9,6 +9,10 @@ router.post('/register', function (req, res) {
   userService.register(req,res);
 })
 
+router.post('/otplogin', function (req, res) {
+  userService.otpLogin(req,res);
+})
+
 router.post('/verifyotp', function (req, res) {
   userService.verifyOtp(req,res);
 })

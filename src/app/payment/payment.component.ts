@@ -14,17 +14,28 @@ export class PaymentComponent implements OnInit {
   public packageBook;
   public options;
   public UserId;
+  public mobile;
+  public userDetail;
   
   constructor( private winRef: WindowRefService ,   private apiService:ApiService, private packageService: PackageService,private userService:UserService ) { }
 
   ngOnInit() { 
-
+    this.viewdata();
     this.packageBook=this.packageService.getPackageInfo();
 
 
    }
 
   rzp1:any;
+
+
+  public viewdata()
+    {
+      this.mobile = this.userService.getMobile();
+      this.apiService.viewProfile(this.mobile).subscribe((data:  any) => {
+          this.userDetail = data.data;
+      });
+}
  
   public initPay(data,name,mobile,address):void {
     this.packageService.setPackageInfo(data);
@@ -59,10 +70,13 @@ export class PaymentComponent implements OnInit {
       localStorage.setItem('mobile', JSON.stringify(''));
       localStorage.setItem('address', JSON.stringify(''));
       localStorage.setItem('paymentpop', JSON.stringify(''));
+      localStorage.clear();
         }
     },
       "prefill": {
           "name": name,
+          "email":this.userDetail.email,
+          "contact":mobile
       },
       "theme": {
           "color": "#dd3f7e"

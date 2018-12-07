@@ -225,7 +225,7 @@ exports.resendOtp = ()=>{
 
 
 exports.editProfile = (req,res)=>{
-    User.updateOne({mobile:req.body.mobile}, { $set: { name: req.body.name , gender: req.body.gender , dob: req.body.dob , email: req.body.email , city:req.body.city ,  door:req.body.door, street:req.body.street, postcode:req.body.postcode     }},(err,data)=>{
+    User.updateOne({mobile:req.body.mobile}, { $set: { name: req.body.name , gender: req.body.gender , dob: req.body.dob , email: req.body.email , city:req.body.city ,  door:req.body.door, street:req.body.street, postcode:req.body.postcode ,password:req.body.password }},(err,data)=>{
         if(err){
             res.send({
                 status: 'fail',
@@ -265,4 +265,78 @@ exports.viewProfile = (req,res)=>{
             );
         }
     });
+}
+
+
+
+exports.otpLogin = (req,res)=>{
+    var id = uuidv1();
+    var otp = Math.random()*10000;
+    otp = otp.toString();
+    otp = otp.slice(0,otp.indexOf('.'));
+    User.updateOne({mobile: req.body.mobile},{otp:otp},(err,data)=>{
+        if(err){
+            res.send({
+                status: 'fail',
+                code:404,
+                data: {}
+              });
+        }
+        else{
+            if(data.nModified != 0){
+        
+                    res.send({
+                        status: 'fail',
+                        code: 200,
+                        data: data
+                      });  
+                  var number= req.body.mobile;
+                  var message= "Your Livigro OTP is " + otp;
+                  var senderid= msg91senderId;
+                  var route= msg91route;
+                  var dialcode= msg91dialcode;
+                  msg91.sendOneandGetJson(msg91api,number,message,senderid,route,dialcode,function(response){
+                      console.log(response);
+                       
+                      });
+            }
+            else{
+                var user = new User({
+                    _id: id,
+                    userId: id,
+                    mobile: req.body.mobile,
+                    otp: otp
+                });
+                user.save((err)=>{
+                    if(err){
+                        res.send({
+                            status: 'fail',
+                            code:404,
+                            data: {}
+                          });
+                    }
+                    else{
+                        res.send(
+                            {
+                                status: 'success',
+                                code: 200,
+                                data: {}
+                              }
+                        );
+                        var number= req.body.mobile;
+                        var message= "Your Livigro Registeration OTP is " + otp;
+                        var senderid= msg91senderId;
+                        var route= msg91route;
+                        var dialcode= msg91dialcode;
+                        msg91.sendOneandGetJson(msg91api,number,message,senderid,route,dialcode,function(response){
+                            console.log(response);
+                             
+                            });
+                        
+                    }
+                });
+            }
+        }
+    });
+    
 }
