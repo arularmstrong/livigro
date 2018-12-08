@@ -31,10 +31,8 @@ export class MybookingsComponent implements OnInit {
       
       this.apiService.viewBooking(this.userId).subscribe((data:  any) => {
           this.userBookings = data.data;
-          this.packid  = this.userBookings.packageId;
-          this.apiService.searchPackageId(this.packid).subscribe((result:  any) => {
-            this.packageDetail = result.data;
-          });      
+
+          
       });
 }
 
