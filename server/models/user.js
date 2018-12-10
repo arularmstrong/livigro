@@ -16,7 +16,39 @@ var user = new Schema({
   createdOn: {
     type: Date,
     "default": Date.now
-  }
+  },
+  city: {
+    type: String,
+    "default": ""
+},
+  dob: {
+    type: String,
+    "default": ""
+},
+  door: {
+    type: String,
+    "default": ""
+},
+  email: {
+    type: String,
+    "default": ""
+},
+  gender: {
+    type: String,
+    "default": ""
+},
+  name: {
+    type: String,
+    "default": ""
+},
+  postcode: {
+    type: String,
+    "default": ""
+},
+  street: {
+    type: String,
+    "default": ""
+}
 },
   {
   strict: false

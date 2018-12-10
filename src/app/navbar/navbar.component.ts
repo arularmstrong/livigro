@@ -11,7 +11,7 @@ import {Router}  from  '@angular/router';
 export class NavbarComponent implements OnInit {
   public sidebarOpened = false;
   public mobile='';
-  public isLogged;;
+  public isLogged;
   toggleOffcanvas() {
     this.sidebarOpened = !this.sidebarOpened;
     if (this.sidebarOpened) {

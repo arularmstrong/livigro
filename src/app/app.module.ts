@@ -7,6 +7,10 @@ import { HttpClientModule } from  '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WindowRefService } from './payment/window-ref.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AutoCompleteModule } from 'ng5-auto-complete';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatInputModule,MatFormFieldModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -22,6 +26,8 @@ import { SearchComponent } from './search/search.component';
 import { OtpComponent } from './user/otp/otp.component';
 import { PasswordComponent } from './user/password/password.component';
 import { RegisteredComponent } from './user/registered/registered.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
+import { MybookingsComponent } from './user/mybookings/mybookings.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,9 @@ import { RegisteredComponent } from './user/registered/registered.component';
     SearchComponent,
     OtpComponent,
     PasswordComponent,
-    RegisteredComponent
+    RegisteredComponent,
+    EditProfileComponent,
+    MybookingsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,13 @@ import { RegisteredComponent } from './user/registered/registered.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
     NgxSpinnerModule,
+    AutoCompleteModule,
     NgbModule.forRoot()
   ],
   providers: [ WindowRefService ],

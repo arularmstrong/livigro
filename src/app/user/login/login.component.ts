@@ -27,7 +27,13 @@ export class LoginComponent implements OnInit {
 
   public mobile='';
   public isLogged;
+  public wrong = false;
+  public isOTP = false;
+  public userId;
+  public otpmsg;
+  public otpmsgStatus = false; 
   public modals: any[] = [];
+  public mobilepopup = false;
   @ViewChild('instance') instance: NgbTypeahead;
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
@@ -39,17 +45,79 @@ export class LoginComponent implements OnInit {
 
   }
 
+  showpopup(){
+    if(this.isOTP== false && this.wrong == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+  public verifyOTP(otp){
+    
+    this.apiService.verifyOTP(otp,this.userService.getMobile()).subscribe((data:  any) => {
+      if( data.status != 'success')
+      {
+        this.otpmsgStatus=true;
+        this.otpmsg = "Wrong OTP";   
+      }
+      else
+      {
+        this.userService.setUserId(data.data.userId);
+        this.userId = this.userService.getUserId();
+        console.log(this.userId);
+        this.mobile=this.userService.getMobile();
+        if(this.userService.getUserId()){
+          this.isLogged=true;
+        }
+        else this.isLogged=false;
+
+
+        if(this.isLogged)
+        {
+          this.router.navigate(['/in']);
+        }
+        else
+        {
+          this.otpmsgStatus=true;
+          this.otpmsg = "Wrong OTP";
+        }
+        
+      }
+  });
+  }
+
+  public otpLogin(mobile)
+  {
+   this.apiService.otpLogin(mobile).subscribe((data:  any) => {
+      this.userService.setMobile(mobile);
+      this.isOTP = true;
+   });
+  }
 
  closeModalDialog(){
   this.display='none'; 
+  this.wrong = false;
+  this.isOTP = false;
+  this.otpmsgStatus=false;
+  this.mobilepopup = false;
  }
 
+
+ public otpbutton(){
+  this.display='block';
+  this.mobilepopup = true;
+ }
   
 public login(mobile,password){
   this.userService.setMobile(mobile);
   this.apiService.login(password,mobile).subscribe((data:  any) => {
     this.userService.setUserId(data.data.userId);
-
+    
     this.mobile=this.userService.getMobile();
     if(this.userService.getUserId()){
       this.isLogged=true;
@@ -63,6 +131,7 @@ public login(mobile,password){
     }
     else
     {
+      this.wrong = true;
       this.display='block';
     }
 });

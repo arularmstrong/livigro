@@ -1,7 +1,53 @@
 <app-navbar></app-navbar>
 
-<div class="backdrop" [ngStyle]="{'display':display}"></div>
-<div class="modal" [ngStyle]="{'display':display}" >
+<div class="modal" [ngStyle]="{'display':display}" *ngIf="mobilepopup">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width:51% !important">
+      
+        <div class="modal-header">
+          <h4 class="modal-title">Sign in with Mobile</h4>
+          <button type="button" class="close" (click)="closeModalDialog()" >&times;</button>
+        </div>
+        
+        <div class="modal-body" >
+          <label for="mobile"><b>Mobile Number</b></label>
+    <input type="text" placeholder="Enter Mobile Number" #mobile  required>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button"  class="btn btn-success" (click)="otpLogin(mobile.value)" >Continue</button>
+          <button type="button" class="btn btn-danger" (click)="closeModalDialog()" >Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" [ngStyle]="{'display':display}" *ngIf="isOTP" >
+      <div class="modal-dialog">
+        <div class="modal-content" style="width:51% !important">
+        
+          <div class="modal-header">
+            <h4 class="modal-title">Sign in with Mobile</h4>
+            <button type="button" class="close" (click)="closeModalDialog()" >&times;</button>
+          </div>
+          
+          <div class="modal-body" >
+            <label for="mobile"><b>OTP</b></label>
+      <input type="text" placeholder="Enter OTP" #otp  required>
+          </div>
+          <b *ngIf="otpmsgStatus" style="color:red;margin-left: 6vw;">{{otpmsg}}</b>
+          
+          <div class="modal-footer">
+              <button type="button"  class="btn btn-success"  (click)="verifyOTP(otp.value)" >Sign in</button>
+            <button type="button" class="btn btn-danger" (click)="closeModalDialog()" >Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="backdrop" [ngStyle]="{'display':display}" *ngIf="showpopup()"></div>
+<div class="modal" [ngStyle]="{'display':display}" *ngIf="showpopup()" >
     <div class="modal-content">
       <div class="modal-header">
           <h6>Incorrect Mobile number or Password</h6>
@@ -28,7 +74,8 @@
                 <input type="password" class="form-control" #password id="exampleInputPassword1" minlength="8" placeholder="Password" required>
               </div>
               <button type="submit" class="btn btn-success mr-2" (click)="login(mobile.value,password.value)">Login</button>
-              
+              <span>or</span>
+              <button type="submit" style="margin-left:1vw" class="btn btn-success mr-2" (click)="otpbutton()">Sign in with mobile</button>
             </form>
           </div>
         </div>

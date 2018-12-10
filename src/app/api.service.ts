@@ -24,6 +24,11 @@ createPackage(data){
 searchPackage(data){
   return  this.http.post(`${this.API_URL}/api/package/searchpackage`,{'term': data });
 }
+
+searchPackageId(data){
+  return  this.http.post(`${this.API_URL}/api/package/searchpackageid`,{'term': data });
+}
+
 register(mobile){
   return  this.http.post(`${this.API_URL}/api/user/register`,{'mobile':mobile});
 }
@@ -36,6 +41,26 @@ registerUser(password,mobile){
 
 login(password,mobile){
   return  this.http.post(`${this.API_URL}/api/user/login`,{'password':password,'mobile':mobile});
+}
+
+editProfile(mobile,name,gender,dob,email,city,door,street,postcode,password){
+  return  this.http.post(`${this.API_URL}/api/user/editprofile`,{'mobile':mobile,'name':name,'gender':gender,'dob':dob,'email':email,'city':city,'door':door,'street':street,'postcode':postcode,'password':password});
+}
+
+viewProfile(mobile){
+  return  this.http.post(`${this.API_URL}/api/user/viewprofile`,{'mobile':mobile});
+}
+
+otpLogin(mobile){
+  return  this.http.post(`${this.API_URL}/api/user/otplogin`,{'mobile':mobile});
+}
+
+viewBooking(userId){
+  return  this.http.post(`${this.API_URL}/api/booking/viewbooking`,{'userId':userId});
+}
+
+viewAllbooking(){
+  return  this.http.get(`${this.API_URL}/api/booking/viewallbooking`);
 }
 
 bookPackage(userId,packageId,name,mobile,address){

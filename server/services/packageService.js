@@ -114,7 +114,7 @@ exports.searchPackage = (req,res)=>{
     
     Package.find({packageName:req.body.term}).populate({
         path:'tests.testId'
-      }).sort({sold: -1}).limit(4).exec(function(err, data){
+      }).sort({sold: -1}).exec(function(err, data){
     if(err){
         console.log(err)
 
@@ -185,4 +185,29 @@ exports.getTests = (req,res)=>{
                   });
                 }
     });
+}
+
+exports.searchPackageId = (req,res)=>{
+    
+    Package.findOne({packageId:req.body.term}).populate({
+        path:'tests.testId'
+      }).sort({sold: -1}).exec(function(err, data){
+    if(err){
+        console.log(err)
+
+        res.send({
+            status: 'fail',
+            data: {}
+          });
+    }
+    else{
+        res.send({
+        status: 'success',
+        code:200,
+        data: data
+      });
+            
+            }
+        });
+    
 }

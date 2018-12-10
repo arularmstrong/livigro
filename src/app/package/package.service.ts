@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from  '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PackageService {
 
-  constructor() { }
+  API_URL  =  window.location.origin;
+
+  constructor(private httpService: HttpClient) { }
   private packageInfo;
   private packageList;
   public setPackageInfo(data)
@@ -21,5 +24,5 @@ export class PackageService {
   }
   public getPackageList(){
     return this.packageList;
-  }
+  } 
 }

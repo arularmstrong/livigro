@@ -5,8 +5,10 @@ import { InComponent } from './in/in.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { RegisteredComponent } from './user/registered/registered.component';
+import { MybookingsComponent } from './user/mybookings/mybookings.component';
 import { OtpComponent } from './user/otp/otp.component';
 import { PasswordComponent } from './user/password/password.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { ViewpackageComponent } from './package/viewpackage/viewpackage.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'viewpackage', component: ViewpackageComponent },
   { path: 'search', component: SearchComponent },
   { path: 'payment', component: PaymentComponent },
-  { path: 'package', component: PackageComponent }
+  { path: 'package', component: PackageComponent },
+  { path: 'editprofile', component: EditProfileComponent },
+  { path: 'mybookings', component: MybookingsComponent }
 ];
 
 @NgModule({

@@ -19,6 +19,12 @@
           Register
         </a>          
       </li>
+
+      <li class="nav-item dropdown" ngbDropdown *ngIf="isLogged">
+          <a class="nav-link count-indicator dropdown-toggle" routerLink="/mybookings" routerLinkActive="active" id="notificationDropdown" ngbDropdownToggle>
+            My Bookings
+          </a>          
+        </li>
       
       <li class="nav-item dropdown d-none d-xl-inline-block" ngbDropdown *ngIf="isLogged">
         <a class="nav-link dropdown-toggle" id="UserDropdown" ngbDropdownToggle>
@@ -39,6 +45,9 @@
               </div>
             </div>
           </a>
+          <a class="dropdown-item" routerLink="/editprofile">
+              Edit Profile
+            </a>
           <a class="dropdown-item" (click)="logout()">
             Sign Out
           </a>

@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" [ngStyle]="{'display':display}" >
+    <div class="modal-content">
+      <div class="modal-header">
+          <h6>Updated Successfully</h6>
+        <span class="close" (click)="closeModalDialog()">&times;</span>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Edit Profile</h4>
+        <form class="forms-sample">
+            <div class="form-group">
+                <label for="exampleInputName1">Mobile Number</label>
+                <input type="text" class="form-control" #name id="exampleInputName1" value="{{userDetail.mobile}}" placeholder="Mobile Number" readonly>
+              </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Name</label>
+            <input type="text" class="form-control" #name id="exampleInputName1" value="{{userDetail.name}}" placeholder="Name">
+          </div>
+              <div class="form-group">
+                <label for="exampleInputgender">Gender</label>
+                  <select class="form-control" #gender id="exampleInputgender" value="{{userDetail.gender}}">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-3 col-form-label">Date of Birth</label>
+                    <input class="form-control" #dob value="{{userDetail.dob}}" placeholder="dd/mm/yyyy">
+                </div>
+          <div class="form-group">
+            <label for="exampleInputEmail3">Email address</label>
+            <input type="email" class="form-control" #email value="{{userDetail.email}}" id="exampleInputEmail3" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputCity1">City</label>
+            <input type="text" class="form-control" #city value="{{userDetail.city}}" id="exampleInputCity1" placeholder="Location">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputCity1">Door</label>
+              <input type="text" class="form-control" #door value="{{userDetail.door}}" id="exampleInputCity1" placeholder="Door">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputCity1">Street</label>
+                <input type="text" class="form-control" #street value="{{userDetail.street}}" id="exampleInputCity1" placeholder="Street">
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputCity1">Postcode</label>
+                  <input type="text" class="form-control" #postcode value="{{userDetail.postcode}}" id="exampleInputCity1" placeholder="Postcode">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Password</label>
+                    <input type="text" class="form-control" #password value="{{userDetail.password}}" id="exampleInputCity1" placeholder="Password">
+                  </div>
+          <button type="submit" class="btn btn-success mr-2" (click)="edit(name.value,gender.value,dob.value,email.value,city.value,door.value,street.value,postcode.value,password.value)">Update</button>
+          <button class="btn btn-light" routerLink="/in">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
