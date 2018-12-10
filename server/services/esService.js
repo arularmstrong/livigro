@@ -10,13 +10,7 @@ exports.createPackage = (package)=> {
             type: 'packages',
             id: package.id,
             body: {
-            packageName: package.packageName,
-            tests: package.tests,
-            consultation: package.consultation,
-            price: package.price,
-            discount: package.discount,
-            fasting: package.fasting,
-            labId: package.labId
+            packageName: package.packageName
             }
             },  (err, data)=> {
             if (err) {
@@ -29,6 +23,7 @@ exports.createPackage = (package)=> {
     });
    }
    
+
    exports.getPackages = (term)=>{
        console.log(term)
        return new Promise((resolve,reject)=>{

@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   public typeaheadBasicModel: any;
   public typeaheadFocusModel: any;
 
-
   display='none'; 
 
   constructor(private userService:UserService, private apiService:ApiService,private router:Router) { }

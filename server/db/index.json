@@ -41,11 +41,6 @@
         "type":"text",
             "analyzer": "packageAnalyzer",
               "search_analyzer": "search_analyzer"
-      },
-"rawTest":{
-        "type":"text",
-"analyzer": "standard",
-"search_analyzer": "search_analyzer"
       }
   }
 }

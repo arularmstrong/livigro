@@ -26,13 +26,23 @@ exports.addPackage = (req,res)=>{
               });
         }
         else{
-            res.send(
-                {
-                    status: 'success',
-                    code: 200,
-                    data: {}
-                  }
-            );
+            esService.createPackage(package).then((data)=>{
+                res.send(
+                    {
+                        status: 'success',
+                        code: 200,
+                        data: data
+                      }
+                );
+            },
+                ()=>{
+                    res.send({
+                        status: 'fail',
+                        data: {}
+                      });
+                }
+                );
+           
         }
     });
 }
@@ -81,7 +91,25 @@ exports.listTopPackages = (req,res)=>{
             }
         });
 }
-
+exports.autocomplete= (req,res)=>{
+    esService.getPackages(req.body.term).then((data)=>{
+        result= [];
+        data.hits.hits.forEach((v)=>{
+            result.push(v._source.packageName);
+            })
+            res.send({
+                status: 'success',
+                code:200,
+                data: result
+              });
+    },(err)=>{
+console.log(err);
+res.send({
+    status: 'error',
+    data: {}
+  });
+    });
+}
 exports.searchPackage = (req,res)=>{
     
     Package.find({packageName:req.body.term}).populate({

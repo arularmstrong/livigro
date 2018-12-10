@@ -1,12 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var packageService = require('../services/packageService');
+
 router.post('/addpackage', function (req, res) {
   packageService.addPackage(req,res);
 })
 
 router.get('/listpackages', function (req, res) {
     packageService.listPackages(req,res);
+  })
+  router.post('/autocomplete', function (req, res) {
+    packageService.autocomplete(req,res);
   })
   router.get('/listtoppackages', function (req, res) {
     packageService.listTopPackages(req,res);
