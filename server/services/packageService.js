@@ -112,7 +112,7 @@ res.send({
 }
 exports.searchPackage = (req,res)=>{
     
-    Package.find({packageName:req.body.term}).populate({
+    Package.find({packageName:{ "$regex": req.body.term, "$options": "i" } }).populate({
         path:'tests.testId'
       }).sort({sold: -1}).exec(function(err, data){
     if(err){
