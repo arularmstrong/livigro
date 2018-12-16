@@ -1,40 +1,87 @@
 <app-navbar></app-navbar>
-<div class="wrap cf">
-    <h1 class="projTitle">Livigro Purchase</h1>
-    <div class="cart">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
-            <input type="text" class="form-control" #name id="exampleInputEmail1" value="{{userDetail.name}}" placeholder="Enter Name" required>
-            <label for="exampleInputEmail1">Mobile Number</label>
-            <input type="number" class="form-control" #mobile id="exampleInputEmail1" value="{{userDetail.mobile}}" minlength="10" maxlength="10" placeholder="Enter Mobile Number" required>
-            <label for="exampleInputEmail1">Residential Address</label>
-            <input type="text" class="form-control" #address id="exampleInputEmail1" value="{{userDetail.door}}, {{userDetail.street}}, {{userDetail.city}} - {{userDetail.postcode}}" placeholder="Enter Residential Address" required>
-          </div>
-      <ul class="cartWrap">
-        <li class="items odd">
-          
-      <div class="infoWrap"> 
-          <div class="cartSection">
-            <h3>{{packageBook.packageName}}</h3>  
-          </div>  
-          <div class="prodTotal cartSection">
-            <p>₹{{packageBook.price}}</p>
+  <div class="privacy py-sm-5 py-4">
+      <div class="container py-xl-4 py-lg-2" style="
+      margin-top: -4vw;
+  ">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+          <span>C</span>heckout
+        </h3>
+        <!-- //tittle heading -->
+        <div class="checkout-right">
+          <h4 class="mb-sm-4 mb-3">Your shopping cart contain:
+            <span>1 Product</span>
+          </h4>
+          <div class="table-responsive">
+            <table class="timetable_sub">
+              <thead>
+                <tr>
+                  <th>SL No.</th>
+                  <th>Quantity</th>
+                  <th>Product Name</th>
+  
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rem1">
+                  <td class="invert">1</td>
+                  <td class="invert">
+                    <div class="quantity">
+                      <div class="quantity-select">
+                        <div class="entry value">
+                          <span>1</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="invert">{{packageBook.packageName}}</td>
+                  <td class="invert">₹{{packageBook.price}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        </li>
-      </ul>
+        <div class="checkout-left">
+          <div class="address_form_agile mt-sm-5 mt-4">
+            <h4 class="mb-sm-4 mb-3">Add Details</h4>
+            <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+              <div class="creditly-wrapper wthree, w3_agileits_wrapper">
+                <div class="information-wrapper">
+                  <div class="first-row">
+                    <div class="controls form-group">
+                      <input class="billing-address-name form-control" type="text" #name value="{{userDetail.name}}" name="name" placeholder="Name" required="">
+                    </div>
+                    <div class="w3_agileits_card_number_grids">
+                      <div class="w3_agileits_card_number_grid_left form-group">
+                        <div class="controls">
+                          <input type="text" class="form-control" #mobile placeholder="Mobile Number" value="{{userDetail.mobile}}" name="number" required="">
+                        </div>
+                      </div>
+                      <div class="w3_agileits_card_number_grid_right form-group">
+                        <div class="controls">
+                          <input type="text" class="form-control" #address value="{{userDetail.door}}, {{userDetail.street}}, {{userDetail.city}} - {{userDetail.postcode}}" placeholder="Enter Residential Address" name="landmark" required="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="checkout-right-basket">
+              <a id="rzp-button1" style="
+              color: white;
+          " (click)="initPay(packageBook,name.value,mobile.value,address.value);">Make a Payment
+                <span class="far fa-hand-point-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="subtotal cf">
-      <ul style="list-style-type: none;">
-        <li class="totalRow"><span class="label">Subtotal</span><span class="value">₹{{packageBook.price}}</span></li>
-        
-              <li class="totalRow"><span class="label">Tax</span><span class="value">₹0.00</span></li>
-              <li class="totalRow final"><span class="label">Total</span><span class="value">₹{{packageBook.price}}</span></li>
-        <li class="totalRow"><a  class="btn continue" id="rzp-button1" (click)="initPay(packageBook,name.value,mobile.value,address.value);">Checkout</a></li>
-      </ul>
-    </div>
-  </div>
+
+
   <ngx-spinner
   bdColor = "rgba(51, 51, 51, 0.8)"
   size = "large"

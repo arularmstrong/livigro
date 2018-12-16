@@ -11,6 +11,9 @@ import { AutoCompleteModule } from 'ng5-auto-complete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule, MatInputModule,MatFormFieldModule } from '@angular/material';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,6 +31,10 @@ import { PasswordComponent } from './user/password/password.component';
 import { RegisteredComponent } from './user/registered/registered.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { MybookingsComponent } from './user/mybookings/mybookings.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { TermsComponent } from './terms/terms.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +53,11 @@ import { MybookingsComponent } from './user/mybookings/mybookings.component';
     PasswordComponent,
     RegisteredComponent,
     EditProfileComponent,
-    MybookingsComponent
+    MybookingsComponent,
+    ContactComponent,
+    AboutComponent,
+    TermsComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +68,7 @@ import { MybookingsComponent } from './user/mybookings/mybookings.component';
     MatInputModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    DropDownsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     NgxSpinnerModule,

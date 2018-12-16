@@ -5,7 +5,10 @@
       <div class="modal-content" style="width:51% !important">
       
         <div class="modal-header">
-          <h4 class="modal-title">Sign in with Mobile</h4>
+          <h4 class="modal-title" style="
+          font-size: 17px;
+          color: #2eb3dd;
+      ">Sign in with Mobile</h4>
           <button type="button" class="close" (click)="closeModalDialog()" >&times;</button>
         </div>
         
@@ -28,7 +31,10 @@
         <div class="modal-content" style="width:51% !important">
         
           <div class="modal-header">
-            <h4 class="modal-title">Sign in with Mobile</h4>
+            <h4 class="modal-title" style="
+            font-size: 17px;
+            color: #2eb3dd;
+        ">Sign in with Mobile</h4>
             <button type="button" class="close" (click)="closeModalDialog()" >&times;</button>
           </div>
           
@@ -45,24 +51,54 @@
         </div>
       </div>
     </div>
-<div class="col-md-12 grid-margin stretch-card">
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title" style="text-align:center;font-size:larger"><b>{{packageInfo.packageName}}</b></h4>
-      <div class="template-demo">
-        <button type="button" class="btn btn-success btn-fw" style="float:right" (click)="bookPackage(packageInfo)" >Book Now</button>
-      </div>
-      <p class="card-description"><b>₹ {{packageInfo.price}}</b></p>
-      <p class="card-description">Parameters Covered : <span>{{packageInfo.tests.length}}</span></p>
-      <ul class="list-star" *ngFor="let test of packageInfo.tests">
-        <li class="card-description">{{test.testId.testName}}</li>
-      </ul>
-      <p class="card-description"><i class="fa fa-cutlery" aria-hidden="true"></i> {{packageInfo.fasting}} hrs fasting required</p>
-      
 
-    </div>
-  </div>
-</div>
+<div class="banner-bootom-w3-agileits py-5">
+		<div class="container py-xl-4 py-lg-2" style="
+    margin-top: -4vw;
+">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+				<span>P</span>ackage
+				<span>D</span>etail</h3>
+			<!-- //tittle heading -->
+			<div class="row">
+			
+
+				<div class="col-lg-7 single-right-left simpleCart_shelfItem">
+					<h3 class="mb-3">{{packageInfo.packageName}}</h3>
+					<p class="mb-3">
+						<span class="item_price">₹ {{packageInfo.price}}</span>
+					</p>
+					<div class="product-single-w3l">
+						<p class="my-3">
+							<i class="far fa-hand-point-right mr-2"></i>
+							Parameters Covered : {{packageInfo.tests.length}}</p>
+						<ul *ngFor="let test of packageInfo.tests">
+							<li class="mb-1" >
+                  {{test.testId.testName}}
+              </li>
+              
+            </ul>
+            <ul>
+            <li class="mb-1" >
+                {{packageInfo.fasting}} hrs fasting required
+              </li>
+            </ul>
+          </div>
+          <div class="occasion-cart">
+              <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                <form action="#" method="post">
+                  <fieldset>
+                    <input type="submit" (click)="bookPackage(packageInfo)" name="submit" value="Book now" class="button" />
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //Single Page -->
 <ngx-spinner
 bdColor = "rgba(51, 51, 51, 0.8)"
 size = "large"

@@ -12,6 +12,10 @@ import { EditProfileComponent } from './user/edit-profile/edit-profile.component
 import { ViewpackageComponent } from './package/viewpackage/viewpackage.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { TermsComponent } from './terms/terms.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 import { PackageComponent } from './package/listpackage/listpackage.component';
 
 
@@ -28,7 +32,11 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'package', component: PackageComponent },
   { path: 'editprofile', component: EditProfileComponent },
-  { path: 'mybookings', component: MybookingsComponent }
+  { path: 'mybookings', component: MybookingsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'terms', component: TermsComponent },
+  { path: 'privacy', component: PrivacyComponent }
 ];
 
 @NgModule({

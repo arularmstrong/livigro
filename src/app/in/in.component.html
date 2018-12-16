@@ -11,33 +11,151 @@
     </div>
   </div>
 
-<main style="  font-family: 'Montserrat Alternates', sans-serif;
-color: #FFFFFF;
-max-width: 100%;
-height: 38vw;
-margin-top: -8vw;
-">
-	<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-		<h1>India’s Largest Diagnostics Company</h1>
-		<h2>Find the right health check-up plan for you</h2>
-		<div class="search-box">
-			<div class="search-icon"><i class="fa fa-search search-icon"></i></div>
-				<input type="text" placeholder="Find your Package/Test" #term id="search" autocomplete="off">  
-			<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
-			 xml:space="preserve">
-          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
-          <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
-        </svg>
-			<div class="go-icon" ><i (click)="search(term.value)"  class="fa fa-arrow-right"></i></div>
-		</div>
+      <!-- Start Home Page Slider -->
+	  <section id="page-top">
+			<!-- Carousel -->
+			<div id="main-slide" class="carousel slide" data-ride="carousel">
+	
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#main-slide" data-slide-to="0" class="active"></li>
+					<li data-target="#main-slide" data-slide-to="1"></li>
+					<li data-target="#main-slide" data-slide-to="2"></li>
+				</ol>
+				<!--/ Indicators end-->
+	
+				<!-- Carousel inner -->
+				<div class="carousel-inner">
+									<div class="item active">
+						<img class="img-responsive"  src="assets/images/banner.png" style="height:100%" alt="slider">
+						
+						<div class="slider-content">
+							<div class="col-md-12 text-center">
+								<h1 class="animated1">
+								  <span>Welcome to <strong>Livigro</strong></span>
+								</h1>
+								<p class="animated2">India’s Largest Diagnostics Company</p>
+						
+								<div class="col-md-6">
+									<div class="form-group">
+									
+										<input type="text" style="margin-left:21vw" class="form-control" #term  autocomplete="off" placeholder="Find your Packages/Test"  required="" >
+						  
+									</div>
+	
+								</div>
 
-	</div>
-</main>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+									<div id="success"></div>
+									<button type="submit" (click)="search(term.value)" class="btn btn-primary">Search</button>
+							
+							</div>
+						</div>
+					</div>
+					<!--/ Carousel item end -->
+					
+					<div class="item">
+						<img class="img-responsive" src="assets/images/banner.png" style="height:100%" alt="slider">
+						
+						<div class="slider-content">
+							<div class="col-md-12 text-center">
+								<h1 class="animated1">
+								  <span>Welcome to <strong>Livigro</strong></span>
+								</h1>
+								<p class="animated2">India’s Largest Diagnostics Company</p>
+						
+								<div class="col-md-6">
+									<div class="form-group">
+									
+										<input type="text" style="margin-left:21vw" class="form-control" #termtwo  autocomplete="off" placeholder="Find your Packages/Test" required="" >
+						  
+									</div>
+	
+								</div>
+									<div id="success"></div>
+									<button type="submit" (click)="search(termtwo.value)" class="btn btn-primary">Search</button>
+							
+							</div>
+						</div>
+					</div>
+					<!--/ Carousel item end -->
+					
+									<div class="item">
+						<img class="img-responsive" src="assets/images/banner.png" style="height:100%" alt="slider">
+						
+						<div class="slider-content">
+							<div class="col-md-12 text-center">
+								<h1 class="animated1">
+								  <span>Welcome to <strong>Livigro</strong></span>
+								</h1>
+								<p class="animated2">India’s Largest Diagnostics Company</p>
+			
+								<div class="col-md-6">
+									<div class="form-group">
+									
+										<input type="text" style="margin-left:21vw" class="form-control" #termone  autocomplete="off" placeholder="Find your Packages/Test"  required="" >
+						  
+									</div>
+	
+								</div>
+									<div id="success"></div>
+									<button type="submit" (click)="search(termone.value)" class="btn btn-primary">Search</button>
+							
+							</div>
+						</div>
+					</div>
+					<!--/ Carousel item end -->
+				</div>
+				<!-- Carousel inner end-->
+	
+				<!-- Controls -->
+				<a class="left carousel-control" href="#main-slide" data-slide="prev">
+					<span><i class="fa fa-angle-left"></i></span>
+				</a>
+				<a class="right carousel-control" href="#main-slide" data-slide="next">
+					<span><i class="fa fa-angle-right"></i></span>
+				</a>
+			</div>
+			<!-- /carousel -->
+		</section>
+		<!-- End Home Page Slider -->
+
+		<div class="container">
+				<h3 class="h3">Popular Packages</h3>
+				<div class="row">
+					<div class="col-md-3 col-sm-6" *ngFor="let package of packages">
+						<div class="product-grid">
+							<div class="product-image">
+								<a >
+									<img class="pic-1" src="assets/package/logo.png">
+									<img class="pic-2" src="assets/package/logo.png">
+								</a>
+								<ul class="social">
+									<li><a (click)="viewPackage(package)" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+								</ul>
+							</div>
+							<ul class="rating">
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star disable"></li>
+							</ul>
+							<div class="product-content">
+								<h3 class="title">{{package.packageName}}</h3>
+								<div class="price">₹ {{package.price}}
+					
+								</div>
+								<a class="add-to-cart" (click)="viewPackage(package)">Buy</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		
+
+
+	
 
   
 

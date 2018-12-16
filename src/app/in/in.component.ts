@@ -22,10 +22,15 @@ export class InComponent implements OnInit {
   public paymentPop:String;
 
   display='none';
+  public  packages;
+  public loading = false;
 
   constructor(private apiService:ApiService,private router: Router,private packageService: PackageService,private userService:UserService) { }
 
   ngOnInit() {
+
+    this.listPackages();
+
     $(document).ready(function(){
       $("#search").focus(function() {
         $(".search-box").addClass("border-searching");
@@ -35,13 +40,8 @@ export class InComponent implements OnInit {
         $(".search-box").removeClass("border-searching");
         $(".search-icon").removeClass("si-rotate");
       });
-      $("#search").keyup(function() {
-          if($(this).val().length > 0) {
+      $("#search").keyup(function() {      
             $(".go-icon").addClass("go-in");
-          }
-          else {
-            $(".go-icon").removeClass("go-in");
-          }
       });
       $(".go-icon").click(function(){
         $(".search-form").submit();
@@ -86,6 +86,18 @@ export class InComponent implements OnInit {
       this.packageService.setPackageList(data.data);
        this.router.navigate(['/search']);
   });
+  }
+
+  public  listPackages(){
+    this.loading = true;
+    this.apiService.getTopPackages().subscribe((data:  any) => {
+        this.loading = false;
+        this.packages  =  data.data;
+    });
+  }
+  public viewPackage(data){
+    this.packageService.setPackageInfo(data);
+    this.router.navigate(['/viewpackage']);
   }
 
 }
