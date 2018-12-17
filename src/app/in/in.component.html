@@ -129,8 +129,8 @@
 						<div class="product-grid">
 							<div class="product-image">
 								<a >
-									<img class="pic-1" src="assets/package/logo.png">
-									<img class="pic-2" src="assets/package/logo.jpg">
+									<img class="pic-1" src="assets/package/{{package.packageName}}.jpg" width="100px" height="100px">
+									<img class="pic-2" src="assets/package/{{package.packageName}}.jpg" width="100px" height="100px">
 								</a>
 								<ul class="social">
 									<li><a (click)="viewPackage(package)" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
@@ -152,6 +152,15 @@
 							</div>
 						</div>
 					</div>
+					<button style="
+    margin-left: 24vw;
+    margin-top: 2vw;
+    background-color: #de3e7e;
+    color: white;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+" routerLink="/package">View All Packages</button>
 
 				</div>
 			</div>
