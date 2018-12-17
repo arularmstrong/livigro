@@ -73,6 +73,7 @@
     "jquery-ui": "^1.12.1",
     "jquery-ui-css": "^1.11.5",
     "jquery-ui-dist": "^1.12.1",
+    "mdbootstrap": "^4.5.16",
     "mdi": "^2.2.43",
     "mongoose": "^5.3.12",
     "msg91-sms": "^1.0.1",
