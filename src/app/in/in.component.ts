@@ -3,8 +3,8 @@ import { ViewEncapsulation } from '@angular/core';
 import { ApiService } from  '../api.service';
 import { Router } from '@angular/router';
 import {PackageService} from '../package/package.service';
-import * as $ from 'jquery';
 import {UserService} from '../user/user.service';
+declare var $: any;
 
 @Component({
   selector: 'app-in',
@@ -24,12 +24,36 @@ export class InComponent implements OnInit {
   display='none';
   public  packages;
   public loading = false;
+  userData: any[] = ["1000","1001","1002","1003","1004","1005","1006","1007","1008","1009","1010"];
+  userList1: any;
+  userList2: any;
+
+  lastkeydown1: number = 0;
+  lastkeydown2: number = 0;
+  subscription: any;
+  
 
   constructor(private apiService:ApiService,private router: Router,private packageService: PackageService,private userService:UserService) { }
 
   ngOnInit() {
 
+
+
+    $('#staticUserIdsSecondWay1').autocomplete({
+      source: ["Body Check", "Urine Test", "Full Checkup","Blood Test","Health Checkup","Pressure Checkup","Check"]
+    });
+    $('#staticUserIdsSecondWay2').autocomplete({
+      source: ["Body Check", "Urine Test", "Full Checkup","Blood Test","Health Checkup","Pressure Checkup","Check"]
+    });
+    $('#staticUserIdsSecondWay3').autocomplete({
+      source: ["Body Check", "Urine Test", "Full Checkup","Blood Test","Health Checkup","Pressure Checkup","Check"]
+    });
+
     this.listPackages();
+
+    
+
+
 
     $(document).ready(function(){
       $("#search").focus(function() {
@@ -99,5 +123,47 @@ export class InComponent implements OnInit {
     this.packageService.setPackageInfo(data);
     this.router.navigate(['/viewpackage']);
   }
+
+  getUserIdsFirstWay($event) {
+    let userId = (<HTMLInputElement>document.getElementById('userIdFirstWay')).value;
+    this.userList1 = [];
+
+    if (userId.length > 2) {
+      if ($event.timeStamp - this.lastkeydown1 > 200) {
+        this.userList1 = this.searchFromArray(this.userData, userId);
+      }
+    }
+  }
+
+  getUserIdsSecondtWay($event) {
+    
+    let userId = (<HTMLInputElement>document.getElementById('dynamicUserIdsSecondWay')).value;
+
+    this.userList2 = [];
+
+    if (userId.length > 2) {
+      if ($event.timeStamp - this.lastkeydown2 > 200) {
+        this.userList2 = this.searchFromArray(this.userData, userId);
+
+        $('#dynamicUserIdsSecondWay').autocomplete({
+          source: this.userList2,
+          messages: {
+            noResults: '',
+            results: function () { }
+          }
+        });
+      }
+    }
+  }
+
+  searchFromArray(arr, regex) {
+    let matches = [], i;
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i].match(regex)) {
+        matches.push(arr[i]);
+      }
+    }
+    return matches;
+  };
 
 }
